@@ -1,0 +1,35 @@
+{
+  "name": "personal_center",
+  "version": "1.0.0",
+  "description": "this app for patica user personal center",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "chokidar": "^1.0.5",
+    "event-stream": "^3.3.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-csso": "^1.0.0",
+    "gulp-inject": "^1.5.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-main-bower-files": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-rimraf": "^0.1.1",
+    "gulp-sass": "^2.0.4",
+    "main-bower-files": "^2.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cexoso/personalCenter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cexoso/personalCenter/issues"
+  },
+  "homepage": "https://github.com/cexoso/personalCenter#readme"
+}

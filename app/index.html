@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="paticaApp">
+<head>
+    <meta charset="utf-8">
+    <title ng-bind="title">Patica手机服务</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="components/index/index.css">
+    <link rel="stylesheet" href="components/order/order.css">
+    <!-- endinject -->
+</head>
+<body>
+    <div ui-view=""></div>
+    <!-- bower:js -->
+    <script src="angular/angular.js"></script>
+    <script src="angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="scripts/app.js"></script>
+    <script src="components/index/indexController.js"></script>
+    <script src="components/order/orderController.js"></script>
+    <!-- endinject -->
+</body>
+</html>

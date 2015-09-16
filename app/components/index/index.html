@@ -1,0 +1,14 @@
+<section id="index">
+    <header>
+        <div class="header_content">
+            <img ng-src="{{user.headimgurl}}" class="headimgurl">
+            <span class="nickname">{{user.nickname}}</span>    
+        </div>
+    </header>
+    <article>
+        <div class="note" ng-repeat="note in notes">
+            <span class="icon" ng-class="note.class"></span><a href="" style="vertical-align: middle;">{{note.name}}</a>
+            <span class="icon icon_arrow"></span>         
+        </div>
+    </article>
+</section>
