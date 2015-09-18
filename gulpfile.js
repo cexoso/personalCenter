@@ -12,7 +12,8 @@ rename = require('gulp-rename'),
 sass = require("gulp-sass"),
 path = require("path"),
 rimraf = require("gulp-rimraf"),
-chokidar = require('chokidar');
+chokidar = require('chokidar'),
+autoprefixer=require('gulp-autoprefixer');
 gulp.task('server', ['injectDev','scss:watch'],
 function() {
     connect.server({
@@ -142,7 +143,11 @@ function() {
 
 function scssCompile(csspath) {
     var st = new Date();
-    gulp.src(csspath).pipe(sass().on('error', sass.logError)).pipe(gulp.dest(path.dirname(csspath)));
+    gulp.src(csspath).pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer({
+        browsers:['last 2 versions']
+    }))
+    .pipe(gulp.dest(path.dirname(csspath)));
     var et = new Date();
     console.log(et - st + 'ms for compile sass');
 };

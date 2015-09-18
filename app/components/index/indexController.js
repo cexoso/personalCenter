@@ -7,11 +7,11 @@ angular.module('controller')
     s.user=user;
 
     var notes=[
-        {class:'icon_order',name:'我的订单'},
-        {class:'icon_coupons',name:'我的优惠券'},
-        {class:'icon_addr',name:'我的地址'},
-        {class:'icon_contact',name:'联系客服'},
-        {class:'icon_feedback',name:'意见反馈'}
+        {sref:"order.orderview({type:1})",class:'icon_order',name:'我的订单'},
+        {sref:"coupons.couponsview({type:1})",class:'icon_coupons',name:'我的优惠券'},
+        {sref:"myaddr",class:'icon_addr',name:'我的地址'},
+        {sref:"cusvice",class:'icon_contact',name:'联系客服'}
+        // ,{sref:"",class:'icon_feedback',name:'意见反馈'}
     ]
     s.notes=notes;
 }]);

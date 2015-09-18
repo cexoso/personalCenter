@@ -1,0 +1,70 @@
+#myaddr {
+  position: relative;
+  min-height: 100vh;
+  background: url("/images/addrbg.jpg") left top/auto 100%;
+  background-repeat: repeat-x;
+  padding: 10px; }
+  #myaddr .addrnote {
+    border: 1px solid #e9e2d5;
+    padding: 10px;
+    background-color: #fff;
+    margin: 10px 0;
+    color: #4d4e4f; }
+    #myaddr .addrnote:hover, #myaddr .addrnote.active {
+      background-color: #fceed2; }
+      #myaddr .addrnote:hover .hr, #myaddr .addrnote.active .hr {
+        border-color: #fff; }
+    #myaddr .addrnote .name {
+      margin-right: 5px; }
+    #myaddr .addrnote .addr {
+      color: #c4bdaf; }
+    #myaddr .addrnote .hr {
+      height: 1px;
+      border-top: 1px solid #c4bdaf;
+      margin-top: 1em;
+      margin-bottom: 0.2em; }
+    #myaddr .addrnote .check {
+      display: inline-block;
+      float: left; }
+      #myaddr .addrnote .check label {
+        font-size: 14px;
+        vertical-align: middle;
+        margin-left: 2px; }
+    #myaddr .addrnote .operation {
+      display: inline-block;
+      float: right;
+      font-size: 14px;
+      line-height: 23px;
+      vertical-align: middle;
+      cursor: default; }
+      #myaddr .addrnote .operation i {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: url("/images/ed.png") left top/auto 100% no-repeat;
+        vertical-align: middle;
+        margin-right: 2px; }
+      #myaddr .addrnote .operation .delete i {
+        background-position: -25px -1px; }
+  #myaddr .btn {
+    outline: none;
+    display: inline-block;
+    padding: 6px 12px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    background-color: white;
+    color: #FFF;
+    position: fixed;
+    bottom: 2vh;
+    left: 0;
+    right: 0;
+    width: 90%;
+    margin: 0 auto;
+    background-color: #f0a836;
+    font-size: 120%; }

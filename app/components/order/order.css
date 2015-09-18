@@ -1,6 +1,10 @@
-#index > header {
-  background: url("/images/headbg.jpg") center top/100% auto no-repeat;
-  height: 43.5vw;
+#order {
+  min-height: 100vh;
+  background-color: #fafaee; }
+
+#order > header {
+  background: url("/images/orderbg.jpg") center top/100% auto no-repeat;
+  height: 36.5vw;
   position: relative; }
 
 .header_content {
@@ -8,13 +12,14 @@
   position: absolute;
   bottom: 0;
   padding: 10px;
-  padding: 1.9vw; }
+  padding: 1.9vw;
+  background-color: rgba(0, 0, 0, 0.3); }
 
-.headimgurl {
+#order .headimgurl {
   border-radius: 50%;
   width: 15%;
   height: auto;
-  border: 3px solid #367aec;
+  border: 3px solid #5a6b73;
   vertical-align: middle; }
 
 .nickname {
@@ -24,43 +29,39 @@
   padding: 8px;
   padding: 3vw; }
 
-#index > article {
-  padding: 5px;
-  padding: 0.5vw; }
+#order .nav {
+  padding: 5px 0;
+  background-color: #f2b411; }
 
-.note {
-  margin: 10px;
-  margin: 2vw;
-  padding: 10px;
-  padding: 4.5vw;
-  border: 1px solid #e7e7de;
-  color: #a5a5a2;
-  box-shadow: 0 2px 5px 0 #e7e7de; }
+#order .nav_group {
+  margin: 0 auto;
+  width: 95%;
+  display: table; }
 
-.icon {
+#order .nav_group .btn {
+  width: 1%;
+  outline: none;
+  padding: 6px 12px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
   vertical-align: middle;
-  background: url("/images/icons.png") no-repeat;
-  background-size: 30vw auto;
-  display: inline-block;
-  margin-right: 10px;
-  width: 8.5vw;
-  height: 9.5vw; }
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  background-color: white;
+  color: #f2b411;
+  display: table-cell; }
 
-.icon_order {
-  background-position: 0vw -1vw; }
+#order .nav_group .btn:hover, #order .nav_group .btn:active, #order .nav_group .btn.active {
+  background-color: #c28a00;
+  color: white; }
 
-.icon_coupons {
-  background-position: -9vw -1vw; }
+#order .nav_group .btn:first-child {
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px; }
 
-.icon_addr {
-  background-position: -17.5vw -1vw; }
-
-.icon_contact {
-  background-position: -20vw -13vw; }
-
-.icon_feedback {
-  background-position: -9vw -13vw; }
-
-.icon_arrow {
-  background-position: 1vw -13vw;
-  float: right; }
+#order .nav_group .btn:last-child {
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px; }

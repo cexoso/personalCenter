@@ -1,0 +1,24 @@
+<div id="myaddr">
+    <div class='addrnote' ng-class="{active:addr.default}" ng-repeat="addr in addrs">
+        <div>
+            <span class="name">{{addr.name}}</span>
+            <span class="tel">{{addr.tel}}</span>
+        </div>
+        <div class="addr">
+            {{addr.addr}}
+        </div>
+        <div class="hr"></div>
+        <div class="clearfix">
+            <span class="check">
+                <span checkbox ng-model="addr.default"></span><label>默认</label>
+            </span>
+            <span class="operation">
+                <span class="edit"><i></i>编辑</span>
+                <span class="delete"><i></i>删除</span>
+            </span>
+        </div>
+    </div> 
+    <div style="height: 10vh;"></div>  
+    <button class="btn">+ 新建订单</button>
+</div>
+

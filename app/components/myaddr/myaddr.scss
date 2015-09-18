@@ -1,0 +1,88 @@
+#myaddr{
+    position: relative;
+    min-height: 100vh;
+    background: url('/images/addrbg.jpg') left top/auto 100%;
+    background-repeat: repeat-x;  
+    padding:10px;
+    .addrnote{
+        border:1px solid #e9e2d5;
+        padding: 10px;
+        background-color: #fff;
+        margin: 10px 0;
+        color:#4d4e4f;
+        &:hover,&.active{
+            background-color: #fceed2;
+            .hr{
+                border-color:#fff;
+            }
+        }
+        .name{
+            margin-right:5px; 
+        }
+        .addr{
+            color:#c4bdaf;
+        }
+        .hr{
+            height: 1px;
+            border-top:1px solid #c4bdaf;
+            margin-top: 1em;
+            margin-bottom: 0.2em;
+        }
+        .check{
+            display: inline-block;
+            float: left;
+            label{
+                font-size: 14px;
+                vertical-align: middle;
+                margin-left: 2px;
+            }
+        }
+        .operation{
+            display: inline-block;
+            float: right;
+            font-size: 14px;
+            line-height: 23px;
+            vertical-align: middle;
+            cursor: default;
+            i{
+                display:inline-block;
+                width:20px;
+                height: 20px;
+                background: url('/images/ed.png') left top/auto 100% no-repeat;
+                vertical-align: middle;
+                margin-right: 2px;
+            }
+            .edit{
+                
+            }
+            .delete{
+                i{
+                    background-position: -25px -1px;
+                }
+            }
+        }
+    }
+    .btn{
+        outline: none;
+        display: inline-block;
+        padding: 6px 12px;
+        font-weight: normal;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        background-color: white;
+        color:#FFF;
+        position:fixed;
+        bottom:2vh;
+        left:0;
+        right:0;
+        width:90%;
+        margin:0 auto;     
+        background-color:#f0a836;       
+        font-size:120%; 
+    }
+}

@@ -6,8 +6,8 @@
         </div>
     </header>
     <article>
-        <div class="note" ng-repeat="note in notes">
-            <span class="icon" ng-class="note.class"></span><a href="" style="vertical-align: middle;">{{note.name}}</a>
+        <div class="note" ui-sref="{{note.sref}}" ng-repeat="note in notes">
+            <span class="icon" ng-class="note.class"></span><a style="vertical-align: middle;">{{note.name}}</a>
             <span class="icon icon_arrow"></span>         
         </div>
     </article>

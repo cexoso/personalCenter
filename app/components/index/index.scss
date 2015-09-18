@@ -2,66 +2,69 @@
     background: url('/images/headbg.jpg') center top/100% auto no-repeat;
     height: 43.5vw;
     position: relative;
-}
-.header_content{
-    width:100%;
-    position: absolute;
-    bottom: 0;
-    padding: 10px;
-    padding: 1.9vw;
-}
-.headimgurl{
-    border-radius: 50%;
-    width: 15%;
-    height: auto;
-    border: 3px solid #367aec;
-    vertical-align: middle;
-}
-.nickname{
-    color: white;
-    font-size: 6vw;
-    line-height: 14vw;
-    padding: 8px;
-    padding: 3vw;
+    .header_content{
+        width:100%;
+        position: absolute;
+        bottom: 0;
+        padding: 10px;
+        padding: 1.9vw;
+        .headimgurl{
+            border-radius: 50%;
+            width: 15%;
+            height: auto;
+            border: 3px solid #367aec;
+            vertical-align: middle;
+        }
+        .nickname{
+            color: white;
+            font-size: 6vw;
+            line-height: 14vw;
+            padding: 8px;
+            padding: 3vw;
+        }
+    }
 }
 #index>article{
     padding: 5px;
-    padding: 0.5vw;    
-}
-.note{
-    margin: 10px;
-    margin: 2vw;
-    padding: 10px;
-    padding: 4.5vw;
-    border: 1px solid #e7e7de;
-    color: #a5a5a2;
-    box-shadow: 0 2px 5px 0 #e7e7de;
-}
-.icon{
-    vertical-align: middle;
-    background: url('/images/icons.png') no-repeat;
-    background-size:30vw auto;
-    display: inline-block;
-    margin-right: 10px;
-    width: 8.5vw;
-    height: 9.5vw;
-}
-.icon_order{
-    background-position:0vw -1vw;
-}
-.icon_coupons{
-    background-position:-9vw -1vw;
-}
-.icon_addr{
-    background-position:-17.5vw -1vw;
-}
-.icon_contact{
-    background-position:-20vw -13vw;
-}
-.icon_feedback{
-    background-position:-9vw -13vw;
-}
-.icon_arrow{
-    background-position:1vw -13vw;
-    float: right;
+    padding: 0.5vw;  
+    .note{
+        margin: 10px;
+        margin: 2vw;
+        padding: 10px;
+        padding: 1.5vw 4.5vw;
+        border: 1px solid #e7e7de;
+        color: #a5a5a2;
+        box-shadow: 0 2px 5px 0 #e7e7de;
+        a{
+            color: #a5a5a2;
+        }
+        .icon{
+            vertical-align: middle;
+            background: url('/images/icons.png') no-repeat;
+            background-size:30vw auto;
+            display: inline-block;
+            margin-right: 10px;
+            width: 8.5vw;
+            height: 9.5vw;
+        }
+        .icon_order{
+            background-position:0vw -1vw;
+        }
+        .icon_coupons{
+            background-position:-9vw -1vw;
+        }
+        .icon_addr{
+            background-position:-17.5vw -1vw;
+        }
+        .icon_contact{
+            background-position:-20vw -13vw;
+        }
+        .icon_feedback{
+            background-position:-9vw -13vw;
+        }
+        .icon_arrow{
+            background-position:1vw -13vw;
+            float: right;
+        }
+    }  
 }

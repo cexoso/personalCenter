@@ -3,8 +3,30 @@
 
 body {
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  font-size: 14px; }
 
 a {
-  text-decoration: none !important;
-  color: inherit !important; }
+  text-decoration: none !important; }
+
+.clearfix::before, .clearfix::after {
+  display: table;
+  content: " "; }
+
+.clearfix::after {
+  clear: both; }
+
+.checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #f4f4f4 url("/images/check.png");
+  background-position: 0 -20px;
+  background-size: 20px 40px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-top: 1px;
+  border: 1px solid #dcdcdc;
+  overflow: hidden; }
+  .checkbox.checked {
+    background-position: -1px -1px; }

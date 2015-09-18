@@ -1,0 +1,58 @@
+#couponsview{
+    padding: 10px;
+    .coupon{
+        margin:10px auto;
+        border-radius: 3px;
+        overflow: hidden;
+        border:1px solid #ccc;
+    }
+    .panel{
+        padding:10px 11vw;    
+        &.green{
+            background-color: #b8dba6;
+            .icon{
+                background-position: 0 0;    
+            }
+        }
+        &.red{
+            background-color: #fc936d;
+            .icon{
+                background-position: -25px 0;    
+            }
+        }
+        .icon{
+            float:left;
+            background: rgba(0, 0, 0, 0) url("/images/cbg.png") no-repeat scroll 0 0 / 50px 40px;
+            display: inline-block;
+            height: 40px;
+            width: 24px;
+            margin-right: 10px;
+        }
+        .font{
+            float: left;
+            display:inline-block;
+            height: 40px;
+            line-height: 40px;
+            vertical-align: middle;
+            color: white;
+            i{
+                font-style: normal;
+                font-size: 150%;
+            }
+        }
+    }
+    .footer{
+        background-color: white;
+        padding: 2vw;
+        font-size:4vw;
+        color:#dcd9d9;
+        .confine{
+            float:left;
+            width: 60%;
+        }
+        .deadline{
+            float:left;
+            width: 40%;   
+        }
+    }
+}

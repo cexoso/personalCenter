@@ -1,0 +1,45 @@
+#couponsview {
+  padding: 10px; }
+  #couponsview .coupon {
+    margin: 10px auto;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid #ccc; }
+  #couponsview .panel {
+    padding: 10px 11vw; }
+    #couponsview .panel.green {
+      background-color: #b8dba6; }
+      #couponsview .panel.green .icon {
+        background-position: 0 0; }
+    #couponsview .panel.red {
+      background-color: #fc936d; }
+      #couponsview .panel.red .icon {
+        background-position: -25px 0; }
+    #couponsview .panel .icon {
+      float: left;
+      background: transparent url("/images/cbg.png") no-repeat scroll 0 0/50px 40px;
+      display: inline-block;
+      height: 40px;
+      width: 24px;
+      margin-right: 10px; }
+    #couponsview .panel .font {
+      float: left;
+      display: inline-block;
+      height: 40px;
+      line-height: 40px;
+      vertical-align: middle;
+      color: white; }
+      #couponsview .panel .font i {
+        font-style: normal;
+        font-size: 150%; }
+  #couponsview .footer {
+    background-color: white;
+    padding: 2vw;
+    font-size: 4vw;
+    color: #dcd9d9; }
+    #couponsview .footer .confine {
+      float: left;
+      width: 60%; }
+    #couponsview .footer .deadline {
+      float: left;
+      width: 40%; }

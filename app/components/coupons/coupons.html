@@ -1,8 +1,9 @@
-<section id="order">
+<section id="coupons">
     <header>
         <div class="header_content">
             <img ng-src="{{user.headimgurl}}" class="headimgurl">
             <span class="nickname">{{user.nickname}}</span>
+            <button class="btn" ng-click="exchange()">激活</button>
         </div>
     </header>
     <div class="nav">
@@ -11,6 +12,6 @@
         </div>
     </div>
     <article>
-        <div ui-view="orderview"></div>
+        <div ui-view="couponsview"></div>
     </article>
 </section>
