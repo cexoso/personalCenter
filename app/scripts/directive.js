@@ -1,5 +1,5 @@
 angular.module('directive', []).
-directive('checkbox',function(){
+directive('checkbox',[function(){
     return{
         restrict:"A",
         require:'ngModel',
@@ -11,4 +11,4 @@ directive('checkbox',function(){
         link:function(s,e,a,c){            
         }
     }
-});
+}]);

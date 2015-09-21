@@ -17,6 +17,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     es = require('event-stream'),
     gulpFilter = require('gulp-filter'),
+    image = require('gulp-image'),
     sort = require('gulp-sort'),
     Q = require('q'),
     templateCache = require('gulp-angular-templatecache'),
@@ -64,14 +65,16 @@ function clear() {
         }));
 };
 function distLogic() {
-    return gulp.src('app/**/*.js')
-        .pipe(sort())
+    return gulp.src(['app/scripts/**/*.js','app/components/**/*.js'])
+        .pipe(sort(function(p1,p2){            
+            return false;
+        }))
         .pipe(concat('logic.js'), {
             newLine: ';'
         })
-        // .pipe(jsmin())
-        // .pipe(uglify())
-        // .pipe(rev())
+        .pipe(jsmin())
+        .pipe(uglify())
+        .pipe(rev())
         .pipe(gulp.dest('./dist/scripts'));
 };
 function dist_css() {
@@ -96,7 +99,9 @@ function dist_css() {
 function makeCache() {
     return gulp.src('app/components/**/*.html')
         .pipe(sort())
-        .pipe(templateCache())
+        .pipe(templateCache({
+            root:'components'
+        }))
         .pipe(jsmin())
         .pipe(rev())
         .pipe(gulp.dest('./dist/scripts'));
@@ -114,25 +119,30 @@ function dist_html() {
         .pipe(gulp.dest('dist/'));
 };
 function dist(){
-    gulp.start('dist_html');
+    return gulp.start(['dist_html']);
 };
 function distlib() {
     var filter = gulpFilter('*.js');
     return gulp.src(bowerFiles())
-        .pipe(filter)
-        // .pipe(sort())
+        .pipe(filter)    
         .pipe(concat('lib.js'), {
             newLine: ';'
         })
-        // .pipe(jsmin())
-        // .pipe(uglify())
-        // .pipe(rev())
+        .pipe(jsmin())
+        .pipe(uglify())
+        .pipe(rev())
         .pipe(gulp.dest('./dist/scripts'));
+};
+function distimg(){
+    return gulp.src('app/images/*')
+        // .pipe(image())
+        .pipe(gulp.dest('./dist/images'));
 };
 gulp.task('dist_html',['makeCache','distlib','distLogic','dist_css'],dist_html);
 gulp.task('makeCache', makeCache);
 gulp.task('distLogic',distLogic);
 gulp.task('distlib',distlib);
+gulp.task('distimg',distimg);
 gulp.task('dist_css',dist_css);
 gulp.task('clear', clear);
 gulp.task('dist', ['clear'], dist);
@@ -200,6 +210,9 @@ var scssCompile = (function () {
                 .pipe(autoprefixer({
                     browsers: ['last 2 versions']
                 }))
+                .pipe(rename(function(p){
+                    p.extname=".css";
+                }))
                 .pipe(gulp.dest('./'));
             var et = new Date();
             console.log(et - st + 'ms for compile ' + arr.length + ' sass');
@@ -217,7 +230,14 @@ function scssRemove(csspath) {
 }
 gulp.task('scss:watch', function () {
     chokidar.watch('app/**/*.scss')
-        .on('add', scssCompile)
-        .on('change', scssCompile)
+        .on('add', function(path){
+            scssCompile(path);
+        })
+        .on('change', function(path){
+            scssCompile(path);
+        })
         .on('unlink', scssRemove);
 });
+gulp.task('test',function(){
+   
+})

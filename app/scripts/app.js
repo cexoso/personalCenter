@@ -3,11 +3,12 @@ angular.module('paticaApp', [
   'ui.router',
   'ngDialog',
   'controller',
-  'directive'
+  'directive',
+  'templates'
 ]).config(['$stateProvider',
 '$urlRouterProvider',
 function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/cusvice');
+    $urlRouterProvider.otherwise('/orderDetails');
     $stateProvider.state('index',{
         url: '/index',
         templateUrl: 'components/index/index.html',    
@@ -57,6 +58,11 @@ function ($stateProvider, $urlRouterProvider) {
         templateUrl: 'components/cusvice/cusvice.html',    
         controller:'cusviceController',
         title:'客服热线'
+    }).state('orderDetails',{
+        url: '/orderDetails',
+        templateUrl: 'components/orderDetails/orderDetails.html',    
+        controller:'orderDetailsController',
+        title:'订单详情'
     });
 
     
@@ -70,3 +76,4 @@ function ($stateProvider, $urlRouterProvider) {
 
 angular.module('controller', []);
 angular.module('directive', []);
+angular.module('templates', []);

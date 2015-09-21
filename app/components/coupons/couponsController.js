@@ -10,10 +10,10 @@ angular.module('controller')
         {uiSref:'coupons.couponsview({type:2})',name:'已使用'},
         {uiSref:'coupons.couponsview({type:3})',name:'已过期'}
     ]
+    var dialog={};
     s.exchange=function(){
-        var dialog={};
         angular.extend(dialog,ngDialog.open({
-            template:'components/coupons/dialog/couponsDialog.html',            
+            template:'components/coupons/dialog/couponsDialog.html',                
             controller:'couponsDialogController',
             disableAnimation:true,
             showClose:false,
@@ -27,6 +27,8 @@ angular.module('controller')
             console.log(d);
         });
     };    
-    s.exchange();
     s.navBtns=navBtns;
+    s.$on('$destroy',function(a){        
+        dialog.close&&dialog.close();
+    })
 }]);
