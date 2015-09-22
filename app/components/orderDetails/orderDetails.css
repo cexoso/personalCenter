@@ -1,3 +1,46 @@
 #orderDetails {
   min-height: 100vh;
-  background-color: brown; }
+  background-color: brown;
+  padding-top: 100px; }
+  #orderDetails .container {
+    margin-left: 10%;
+    width: 80%; }
+    #orderDetails .container .node {
+      float: left;
+      width: 25%;
+      position: relative;
+      text-align: center; }
+      #orderDetails .container .node .point {
+        width: 100%;
+        background-color: #434343;
+        box-shadow: 0 0px 3px 0 #2d2d2d inset;
+        height: 12.5px; }
+      #orderDetails .container .node::after {
+        background-color: #434343;
+        box-shadow: 0 0px 3px 0 #2d2d2d inset;
+        content: " ";
+        height: 25px;
+        right: -25px;
+        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        width: 25px;
+        border-radius: 50%;
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        z-index: 1000; }
+      #orderDetails .container .node.active::after {
+        background-color: #f9dd33;
+        box-shadow: 0 -3px 2px 0 #8b8120 inset; }
+      #orderDetails .container .node.active .point {
+        background-color: #f9dd33; }
+      #orderDetails .container .node:first-child {
+        width: 0; }
+      #orderDetails .container .node .text {
+        color: #fff;
+        position: absolute;
+        right: -2em;
+        top: -2em;
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        white-space: nowrap; }

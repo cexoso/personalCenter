@@ -1,3 +1,8 @@
 <div id="orderDetails">
-    <div process="pro.id as pro.name for pro in process"></div>
+    <div class="container clearfix">
+        <div class="node" ng-class="{active:{{order.status>=pro.id}}}" ng-repeat="pro in process">
+            <div class="point"></div>
+            <div class="text">{{pro.name}}</div>
+        </div>
+    </div>
 </div>

@@ -7,10 +7,11 @@ angular.module('controller')
         {id:'3',name:'维修'},
         {id:'4',name:'支付'},
         {id:'5',name:'评价'}
-    ]
+    ];
+    s.order={
+        status:2
+    };
 }]);
-
-
 angular.module('directive')
 .directive('process',[function(){
      return{
@@ -24,4 +25,4 @@ angular.module('directive')
             console.log(c);
         }
     }
-}])
+}]);
