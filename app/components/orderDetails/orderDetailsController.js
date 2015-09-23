@@ -1,14 +1,21 @@
 'use strict';
 angular.module('controller')
-.controller('orderDetailsController',['$scope',function(s){
+.controller('orderDetailsController',['$scope','order',function(s,order){
     s.process=[
         {id:'1',name:'提交'},
         {id:'2',name:'回复'},
         {id:'3',name:'维修'},
         {id:'4',name:'支付'},
         {id:'5',name:'评价'}
-    ];
+    ];//
     s.order={
+        usercity:'深圳',
+        userarea:'南山区',
+        useraddr:'华侨城创意文化园a3栋208c',
+        username:'李小龙',
+        userPhone:'13333333333',
+        trouble_desc:'苹果 Iphone6 金色 wifi故障',
+        orderid:'112103087689',
         status:2
     };
 }]);

@@ -2,22 +2,24 @@
     <div class="orderdisplay" ng-repeat="order in orders">
         <div class="header">
             <span>订单号: {{order.orderid}}</span>
-            <span class="status">
-                {{order.statusName}}
-            </span>
+            <span class="status">{{order.statusName}}</span>
         </div>
-        <div class="body clearfix">
-            <span class="icon" ng-class="order.type">
-            </span>
+        <div class="body clearfix" ng-click="orderClickHandle($event)">
+            <span class="icon" ng-class="order.type"></span>
             <span class="display">
                 <div class="name">{{order.name}}</div>
-                
-                <div class="quote"><label>总价: </label><i>￥</i>{{order.quote}}</div>
-                <div class="ordertime"><label>日期: </label>{{order.ordertime|date:'yyyy-M-d'}}</div>
+                <div class="quote">
+                    <label>总价:</label> <i>￥</i>
+                    {{order.quote}}
+                </div>
+                <div class="ordertime">
+                    <label>日期:</label>
+                    {{order.ordertime|date:'yyyy-M-d'}}
+                </div>
             </span>
             <span class="operation">
-                <a class="btn" ng-if="order.status==6003">付 款</a>
-                <a class="btn" ng-if="order.status==6004">评 价</a>
+                <a class="btn" ng-if="order.status==6003"  ui-sref="index">付 款</a>
+                <a class="btn" ng-if="order.status==6004"  ui-sref="index">评 价</a>
             </span>
         </div>
     </div>

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('controller')
-.controller('orderviewController',['$scope','$stateParams','$interval',function(s,$stateParams,$interval){
+.controller('orderviewController',['$scope','$stateParams','$interval','$state',function(s,$stateParams,$interval,$state){
     console.log($stateParams);
     var orders=[
         {name:"iphone4换屏",orderid:"521023110001",type:'fix',status:'6003',statusName:'待付款',quote:200,ordertime:'1442558466955'},
@@ -9,6 +9,12 @@ angular.module('controller')
         {name:"iphone4",orderid:"521023110002",type:'fix',status:'6002',statusName:'派单中',quote:200,ordertime:'1442558466955'}
     ];
     s.orders=orders;
+    s.orderClickHandle=function(e){
+        var tag=e.target;
+        if(angular.lowercase(tag.tagName)!=='a'){
+            $state.go('orderDetails',{id:1});
+        }
+    }
 }]);
 // angular.module('controller')
 // .directive('test',function(){

@@ -8,7 +8,7 @@ angular.module('paticaApp', [
 ]).config(['$stateProvider',
 '$urlRouterProvider',
 function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/orderDetails');
+    $urlRouterProvider.otherwise('/evaluate');
     $stateProvider.state('index',{
         url: '/index',
         templateUrl: 'components/index/index.html',    
@@ -59,10 +59,21 @@ function ($stateProvider, $urlRouterProvider) {
         controller:'cusviceController',
         title:'客服热线'
     }).state('orderDetails',{
-        url: '/orderDetails',
+        url: '/orderDetails/:id',
         templateUrl: 'components/orderDetails/orderDetails.html',    
         controller:'orderDetailsController',
-        title:'订单详情'
+        title:'订单详情',
+        resolve:{
+            order:['$stateParams','$http',function($stateParams,$http){
+                return {
+                }
+            }]
+        }
+    }).state('evaluate',{
+        url: '/evaluate',
+        templateUrl: 'components/evaluate/evaluate.html',    
+        controller:'evaluateController',
+        title:'评价'
     });
 
     

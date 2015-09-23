@@ -1,0 +1,36 @@
+#evaluate {
+  padding: 10px; }
+  #evaluate .panel {
+    border: 1px solid #c6c1b5;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: hidden; }
+    #evaluate .panel .header {
+      padding: 0.5em;
+      color: #fff;
+      font-size: 120%;
+      background-color: #ebc35e; }
+    #evaluate .panel .body {
+      padding: 0.5em;
+      line-height: 1.7;
+      background-color: #f4f4ef; }
+      #evaluate .panel .body .text {
+        height: 40vw;
+        width: 100%;
+        resize: none; }
+      #evaluate .panel .body .btn {
+        outline: none;
+        display: inline-block;
+        padding: 5px;
+        width: 100%;
+        font-weight: normal;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+        background-color: #3da8ed;
+        color: #fff;
+        border-radius: 5px;
+        margin-top: 3vw; }
