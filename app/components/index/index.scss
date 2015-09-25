@@ -1,5 +1,6 @@
+@import "app/css/base";
 #index>header{
-    background: url('/images/headbg.jpg') center top/100% auto no-repeat;
+    background: url($img+'headbg.jpg') center top/100% auto no-repeat;
     height: 43.5vw;
     position: relative;
     .header_content{
@@ -40,7 +41,7 @@
         }
         .icon{
             vertical-align: middle;
-            background: url('/images/icons.png') no-repeat;
+            background: url($img+'icons.png') no-repeat;
             background-size:30vw auto;
             display: inline-block;
             margin-right: 10px;

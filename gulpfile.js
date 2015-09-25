@@ -24,17 +24,16 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer');
 gulp.task('server', ['scss:watch'], function () {
     connect.server({
-        root: ['app', 'bower_components'],
+        root: ['app','bower_components'],
         livereload: true,
         port: 80,
         middleware: function (connect, opt) {
                 return [
 
                     function (req, res, next) {
-                        if(!req.url.match('/api/')) {
+                        if (!req.url.match('/api/')) {
                             next();
-                        }
-                        else {
+                        } else {
                             console.log('代理：' + req.url)
                             var method = req.method;
                             req.method = 'GET';
@@ -53,21 +52,32 @@ gulp.task('server', ['scss:watch'], function () {
         .on('add', injectDev)
         .on('unlink', injectDev);
     chokidar.watch([].concat(css, js, html))
-        .on('all', function (event, path) {
-            gulp.src('./app/index.html')
-                .pipe(connect.reload());
-        })
+        .on('all', (function () {
+            var t = null;
+            return function (event, path) {
+                if (t) {
+                    clearTimeout(t);
+                }
+                t = setTimeout(function () {
+                    console.log("livereload");
+                    gulp.src('./app/index.html')
+                        .pipe(connect.reload());
+                }, 50);
+            }
+        })());
 });
+
 function clear() {
     return gulp.src('dist')
         .pipe(rimraf({
             force: true
         }));
 };
+
 function distLogic() {
-    return gulp.src(['app/scripts/**/*.js','app/components/**/*.js'])
-        .pipe(sort(function(p1,p2){            
-            return false;
+    return gulp.src(['app/scripts/**/*.js', 'app/components/**/*.js'])
+        .pipe(sort(function (p1, p2) {
+            return -1;
         }))
         .pipe(concat('logic.js'), {
             newLine: ';'
@@ -77,11 +87,12 @@ function distLogic() {
         .pipe(rev())
         .pipe(gulp.dest('./dist/scripts'));
 };
+
 function dist_css() {
     var filter = gulpFilter('*.css');
     var libcss = gulp.src(bowerFiles())
         .pipe(filter);
-    var mycss = gulp.src('app/**/*.scss')
+    var mycss = gulp.src(['app/**/*.scss','!app/**/base.scss'])
         .pipe(sass()
             .on('error', sass.logError));
     return es.merge(libcss, mycss)
@@ -96,16 +107,18 @@ function dist_css() {
         .pipe(rev())
         .pipe(gulp.dest('dist/css'));
 };
+
 function makeCache() {
     return gulp.src('app/components/**/*.html')
         .pipe(sort())
         .pipe(templateCache({
-            root:'components'
+            root: 'components'
         }))
         .pipe(jsmin())
         .pipe(rev())
         .pipe(gulp.dest('./dist/scripts'));
 };
+
 function dist_html() {
     return gulp.src('app/indexTpl.html')
         .pipe(inject(gulp.src(['dist/**/*.css', 'dist/scripts/**/*.js'], {
@@ -118,13 +131,15 @@ function dist_html() {
         .pipe(rename('index.html'))
         .pipe(gulp.dest('dist/'));
 };
-function dist(){
+
+function dist() {
     return gulp.start(['dist_html']);
 };
+
 function distlib() {
     var filter = gulpFilter('*.js');
     return gulp.src(bowerFiles())
-        .pipe(filter)    
+        .pipe(filter)
         .pipe(concat('lib.js'), {
             newLine: ';'
         })
@@ -133,17 +148,18 @@ function distlib() {
         .pipe(rev())
         .pipe(gulp.dest('./dist/scripts'));
 };
-function distimg(){
+
+function distimg() {
     return gulp.src('app/images/*')
         // .pipe(image())
         .pipe(gulp.dest('./dist/images'));
 };
-gulp.task('dist_html',['makeCache','distlib','distLogic','dist_css'],dist_html);
+gulp.task('dist_html', ['makeCache', 'distlib', 'distLogic', 'dist_css'], dist_html);
 gulp.task('makeCache', makeCache);
-gulp.task('distLogic',distLogic);
-gulp.task('distlib',distlib);
-gulp.task('distimg',distimg);
-gulp.task('dist_css',dist_css);
+gulp.task('distLogic', distLogic);
+gulp.task('distlib', distlib);
+gulp.task('distimg', distimg);
+gulp.task('dist_css', dist_css);
 gulp.task('clear', clear);
 gulp.task('dist', ['clear'], dist);
 gulp.task('default', ['server']);
@@ -154,7 +170,7 @@ var injectDev = (function () {
     var t = null;
     var timeout = 50;
     return function () {
-        if(t) {
+        if (t) {
             clearTimeout(t);
         }
         t = setTimeout(function () {
@@ -194,10 +210,13 @@ var scssCompile = (function () {
     var t = null;
     var timeout = 50;
     return function (csspath) {
-        if(t) {
+        if(csspath=="app\\css\\base.scss"){
+            return;
+        }
+        if (t) {
             clearTimeout(t);
         }
-        if(arr.indexOf(csspath) == -1) {
+        if (arr.indexOf(csspath) == -1) {
             arr.push(csspath);
         }
         t = setTimeout(function () {
@@ -210,8 +229,8 @@ var scssCompile = (function () {
                 .pipe(autoprefixer({
                     browsers: ['last 2 versions']
                 }))
-                .pipe(rename(function(p){
-                    p.extname=".css";
+                .pipe(rename(function (p) {
+                    p.extname = ".css";
                 }))
                 .pipe(gulp.dest('./'));
             var et = new Date();
@@ -228,16 +247,19 @@ function scssRemove(csspath) {
             force: true
         }));
 }
+   
 gulp.task('scss:watch', function () {
     chokidar.watch('app/**/*.scss')
-        .on('add', function(path){
+        .on('add', function (path) {
             scssCompile(path);
         })
-        .on('change', function(path){
+        .on('change', function (path) {
             scssCompile(path);
         })
         .on('unlink', scssRemove);
 });
-gulp.task('test',function(){
-   
+gulp.task('test',['clear'], function () {
+    var arr=['app/**/*.scss','!app/**/base.scss'];
+    return gulp.src(arr)
+    .pipe(gulp.dest('./dist'));
 })

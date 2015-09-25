@@ -1,7 +1,8 @@
+@import "app/css/base";
 #myaddr{
     position: relative;
     min-height: 100vh;
-    background: url('/images/addrbg.jpg') left top/auto 100%;
+    background: url($img+'addrbg.jpg') left top/auto 100%;
     background-repeat: repeat-x;  
     padding:10px;
     .addrnote{
@@ -48,7 +49,7 @@
                 display:inline-block;
                 width:20px;
                 height: 20px;
-                background: url('/images/ed.png') left top/auto 100% no-repeat;
+                background: url($img+'ed.png') left top/auto 100% no-repeat;
                 vertical-align: middle;
                 margin-right: 2px;
             }

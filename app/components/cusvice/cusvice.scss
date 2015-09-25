@@ -1,6 +1,7 @@
+@import "app/css/base";
 #cusvice{
     min-height: 100vh;
-    background:rgba(0, 0, 0, 0) url("/images/cvbg.png") no-repeat scroll left bottom / 100% auto;
+    background:rgba(0, 0, 0, 0) url($img+"cvbg.png") no-repeat scroll left bottom / 100% auto;
     padding:10vh 0;
     .call{
         font-size:5.5vw;
@@ -15,7 +16,7 @@
             .icon{
                 width:27vw;
                 height:27vw;
-                background:rgba(240, 184, 75, 1) url("/images/cvp.png") no-repeat scroll center center / 18vw auto;
+                background:rgba(240, 184, 75, 1) url($img+"cvp.png") no-repeat scroll center center / 18vw auto;
                 float:left;
                 border-radius: 50%;
                 border:3px solid #fff;

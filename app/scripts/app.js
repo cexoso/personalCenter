@@ -8,7 +8,7 @@ angular.module('paticaApp', [
 ]).config(['$stateProvider',
 '$urlRouterProvider',
 function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/evaluate');
+    $urlRouterProvider.otherwise('/addAddr');
     $stateProvider.state('index',{
         url: '/index',
         templateUrl: 'components/index/index.html',    
@@ -74,9 +74,17 @@ function ($stateProvider, $urlRouterProvider) {
         templateUrl: 'components/evaluate/evaluate.html',    
         controller:'evaluateController',
         title:'评价'
+    }).state('addAddr',{
+        url: '/addAddr',
+        templateUrl: 'components/addAddr/addAddr.html',    
+        controller:'addAddrController',
+        title:'新增地址'
+    }).state('editAddr',{
+        url: '/editAddr/:id',
+        templateUrl: 'components/editAddr/editAddr.html',    
+        controller:'editAddrController',
+        title:'修改地址'
     });
-
-    
 }]).run(['$rootScope','$interval',function($rootScope,$interval){    
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
         if(toState.title){

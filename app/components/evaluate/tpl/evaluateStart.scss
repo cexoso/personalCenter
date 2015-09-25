@@ -1,0 +1,22 @@
+@import "app/css/base";
+$star_size:9vw;
+[evaluate-star]{
+    margin: 10px 0;
+    .star{
+        display: inline-block;
+        height: $star_size;
+        width: $star_size;
+        float:left;
+        background: rgba(0, 0, 0, 0) url($img+"evaluateStar.png") no-repeat scroll 0 -#{$star_size} / #{$star_size} auto;
+        margin: 0 0.5vw;
+        &.active{
+            background-position: 0 0;
+        }
+    }
+
+    &::after{
+        content:" ";
+        display:table;
+        clear:both;
+    }
+}

@@ -1,0 +1,96 @@
+@import "app/css/base";
+#addAddr{
+    padding: 10px;
+    .panel{
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border:1px solid #c1c1b9;
+        overflow: hidden;
+        .header{
+            background-color: #eac167;
+            padding:0.5em 0;
+            text-align: center;
+            color:#FFF;
+        }
+        .body{
+            padding: 10px;
+            .form-control{
+                margin:5px 0;
+                &:first-child{
+                    margin-top:0;
+                }
+                &:last-child{
+                    margin-bottom:0;
+                }
+            }
+            .input-group{
+                display:table;
+                width:100%;
+                border:1px solid #7e807b;
+                position: relative;
+                border-collapse: separate;
+                .addon{
+                    display:table-cell;
+                    width:1%;              
+                    position: relative;
+                    white-space: nowrap;      
+                    vertical-align: middle;
+                    background-color: #eee;
+                    text-align: center;
+                    font-size:0;
+                    .img{
+                        width:30px;
+                        height:30px;
+                        display:block;
+                        background:url($img+"name.png") no-repeat scroll 0 0/30px 30px;
+                    }
+                }
+                select{
+                    height:30px;
+                    width:33%;
+                    float:left;
+                    border:none;
+                    outline:none;
+                    display:tabel-cell;
+                    appearance:none;
+                }
+                input{
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
+                    display:tabel-cell;
+                    height:30px;
+                    width:100%;
+                    position: relative;
+                    appearance:none;
+                    border:none;
+                    z-index: 2;
+                }
+                input[type=number] { 
+                    -moz-appearance:textfield;
+                }
+                input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+            }
+            .btn{
+                outline: none;
+                display: inline-block;
+                padding: 3px 12px;
+                width: 100%;
+                font-weight: normal;
+                line-height: 1.42857143;
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: middle;
+                cursor: pointer;                
+                border: 1px solid transparent;
+                background-color: #fac045;
+                color:#fff;
+                border-radius: 3px;
+                margin-top: 3vw;
+            }
+        }
+
+    }
+}

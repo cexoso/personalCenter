@@ -1,6 +1,6 @@
 'use strict';
 angular.module('controller')
-.controller('myaddrController',['$scope',function(s){
+.controller('myaddrController',['$scope','$state',function(s,$state){
     var addrs=[
         {
             name:'张三',
@@ -22,4 +22,14 @@ angular.module('controller')
         }
     ];
     s.addrs=addrs;
+    s.test=function(){
+        console.log(Date());
+    }
+    s.delete=function(e){        
+        e.stopPropagation();
+    }
+    s.edit=function(e){        
+        e.stopPropagation();
+        $state.go("editAddr",{id:123});
+    }
 }]);

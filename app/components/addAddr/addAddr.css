@@ -1,0 +1,83 @@
+#addAddr {
+  padding: 10px; }
+  #addAddr .panel {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid #c1c1b9;
+    overflow: hidden; }
+    #addAddr .panel .header {
+      background-color: #eac167;
+      padding: 0.5em 0;
+      text-align: center;
+      color: #FFF; }
+    #addAddr .panel .body {
+      padding: 10px; }
+      #addAddr .panel .body .form-control {
+        margin: 5px 0; }
+        #addAddr .panel .body .form-control:first-child {
+          margin-top: 0; }
+        #addAddr .panel .body .form-control:last-child {
+          margin-bottom: 0; }
+      #addAddr .panel .body .input-group {
+        display: table;
+        width: 100%;
+        border: 1px solid #7e807b;
+        position: relative;
+        border-collapse: separate; }
+        #addAddr .panel .body .input-group .addon {
+          display: table-cell;
+          width: 1%;
+          position: relative;
+          white-space: nowrap;
+          vertical-align: middle;
+          background-color: #eee;
+          text-align: center;
+          font-size: 0; }
+          #addAddr .panel .body .input-group .addon .img {
+            width: 30px;
+            height: 30px;
+            display: block;
+            background: url("/images/name.png") no-repeat scroll 0 0/30px 30px; }
+        #addAddr .panel .body .input-group select {
+          height: 30px;
+          width: 33%;
+          float: left;
+          border: none;
+          outline: none;
+          display: tabel-cell;
+          -webkit-appearance: none;
+             -moz-appearance: none;
+                  appearance: none; }
+        #addAddr .panel .body .input-group input {
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+          display: tabel-cell;
+          height: 30px;
+          width: 100%;
+          position: relative;
+          -webkit-appearance: none;
+             -moz-appearance: none;
+                  appearance: none;
+          border: none;
+          z-index: 2; }
+        #addAddr .panel .body .input-group input[type=number] {
+          -moz-appearance: textfield; }
+        #addAddr .panel .body .input-group input[type=number]::-webkit-inner-spin-button, #addAddr .panel .body .input-group input[type=number]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0; }
+      #addAddr .panel .body .btn {
+        outline: none;
+        display: inline-block;
+        padding: 3px 12px;
+        width: 100%;
+        font-weight: normal;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+        background-color: #fac045;
+        color: #fff;
+        border-radius: 3px;
+        margin-top: 3vw; }

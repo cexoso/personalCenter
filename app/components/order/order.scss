@@ -1,9 +1,10 @@
+@import "app/css/base";
 #order{
     min-height: 100vh;
     background-color: #fafaee;
 }
 #order>header{
-    background: url('/images/orderbg.jpg') center top/100% auto no-repeat;
+    background: url($img+'orderbg.jpg') center top/100% auto no-repeat;
     height: 36.5vw;
     position: relative;
 }

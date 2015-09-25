@@ -1,8 +1,9 @@
+@import "app/css/base";
 #coupons{
     min-height: 100vh;
     background-color: #fafaee;
     header{
-        background: url('/images/couponsbg.jpg') center top/100% auto no-repeat;
+        background: url($img+'couponsbg.jpg') center top/100% auto no-repeat;
         height: 36.5vw;
         position: relative;
         .header_content{

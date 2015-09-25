@@ -1,3 +1,4 @@
+@import "app/css/base";
 #orderview{
     padding: 10px;
     background-color: #fafaee;
@@ -24,7 +25,7 @@
                 height:17vw;
                 width: 15vw;
                 float:left;
-                background: url('/images/ordershow.png') no-repeat 0 0/30vw auto;
+                background: url($img+'ordershow.png') no-repeat 0 0/30vw auto;
             }
             .fix{
                 background-position: 0 0;        

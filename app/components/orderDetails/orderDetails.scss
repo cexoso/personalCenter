@@ -1,3 +1,4 @@
+@import "app/css/base";
 $item:5;
 $point-size:25px;
 $activeColor:#f9dd33;
@@ -6,7 +7,7 @@ $defaultColor:#434343;
     min-height: 100vh;
     background-color: #e5e5e0;
     &>.header{
-        background:url('/images/detail_header_bg.jpg') no-repeat 0 0/100% auto;
+        background:url($img+'detail_header_bg.jpg') no-repeat 0 0/100% auto;
         height:50vw;
         position:relative;
         .container{

@@ -1,5 +1,5 @@
 <div id="myaddr">
-    <div class='addrnote' ng-class="{active:addr.default}" ng-repeat="addr in addrs">
+    <div class='addrnote' ng-class="{active:addr.default}" ng-repeat="addr in addrs" ng-click="test()">
         <div>
             <span class="name">{{addr.name}}</span>
             <span class="tel">{{addr.tel}}</span>
@@ -13,12 +13,12 @@
                 <span checkbox ng-model="addr.default"></span><label>默认</label>
             </span>
             <span class="operation">
-                <span class="edit"><i></i>编辑</span>
-                <span class="delete"><i></i>删除</span>
+                <span class="edit" ng-click="edit($event)"><i></i>编辑</span>
+                <span class="delete" ng-click="delete($event)"><i></i>删除</span>
             </span>
         </div>
     </div> 
     <div style="height: 10vh;"></div>  
-    <button class="btn">+ 新建订单</button>
+    <button class="btn" ui-sref="addAddr">+ 新建地址</button>
 </div>
 
