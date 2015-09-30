@@ -1,0 +1,42 @@
+<div id="payment">
+    <div class="container">
+        <div class="panel">
+            <div class="header">订单信息</div>
+            <div class="body">
+                <div class="item">
+                    <span class="key">订单号:</span>
+                    <span class="value">{{order.orderid}}</span>
+                </div>
+                <div class="item">
+                    <span class="key">产&#x3000;品:</span>
+                    <span class="value">{{order.trouble_desc}}</span>
+                </div>
+                <div class="item">
+                    <span class="key">用&#x3000;户:</span>
+                    <span class="value">{{order.username}} {{order.userPhone}}</span>
+                </div>
+                <div class="item">
+                    <span class="key">地&#x3000;址</span>
+                    <span class="value addr">{{order.usercity}} {{order.usercity}} {{order.userarea}}</span>
+                </div>
+                <div class="item">
+                    <span class="key"></span>
+                    <span class="value addr">{{order.useraddr}}</span>
+                </div>
+                <div class="item">
+                    <span class="key">价&#x3000;格</span>
+                    <span class="value addr">{{order.price}}</span>
+                </div>
+                <div class="coupon">
+                    <span class="key">优惠券</span>
+                    <span class="value">
+                        <select ng-model="coupon" ng-options="coupon.id as coupon.name for coupon in coupons">
+                            <option value="">请选择优惠券</option>
+                        </select>
+                    </span>
+                </div>
+                <button class="btn">支付</button>
+            </div>
+        </div>
+    </div>
+</div>

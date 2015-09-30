@@ -154,7 +154,7 @@ function distimg() {
         // .pipe(image())
         .pipe(gulp.dest('./dist/images'));
 };
-gulp.task('dist_html', ['makeCache', 'distlib', 'distLogic', 'dist_css'], dist_html);
+gulp.task('dist_html', ['makeCache', 'distlib', 'distLogic', 'dist_css','distimg'], dist_html);
 gulp.task('makeCache', makeCache);
 gulp.task('distLogic', distLogic);
 gulp.task('distlib', distlib);

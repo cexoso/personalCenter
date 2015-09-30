@@ -1,0 +1,113 @@
+#payment {
+  min-height: 100vh;
+  background-color: #e5e5e0; }
+  #payment > .header {
+    background: url("/images/detail_header_bg.jpg") no-repeat 0 0/100% auto;
+    height: 50vw;
+    position: relative; }
+    #payment > .header .container {
+      margin-left: 10%;
+      width: 80%;
+      position: absolute;
+      top: 20vw; }
+      #payment > .header .container .node {
+        float: left;
+        width: 25%;
+        position: relative;
+        text-align: center; }
+        #payment > .header .container .node .point {
+          width: 100%;
+          background-color: #434343;
+          box-shadow: 0 0px 3px 0 #2d2d2d inset;
+          height: 12.5px; }
+        #payment > .header .container .node::after {
+          background-color: #434343;
+          box-shadow: 0 0px 3px 0 #2d2d2d inset;
+          content: " ";
+          height: 25px;
+          right: -25px;
+          margin: 0 auto;
+          position: absolute;
+          top: 50%;
+          width: 25px;
+          border-radius: 50%;
+          -webkit-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
+          z-index: 1000; }
+        #payment > .header .container .node.active::after {
+          background-color: #f9dd33;
+          box-shadow: 0 -3px 2px 0 #8b8120 inset; }
+        #payment > .header .container .node.active .point {
+          background-color: #f9dd33; }
+        #payment > .header .container .node:first-child {
+          width: 0; }
+        #payment > .header .container .node .text {
+          color: #fff;
+          position: absolute;
+          right: -2em;
+          top: -2em;
+          -webkit-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
+          white-space: nowrap; }
+    #payment > .header .tips {
+      margin: 2em -0.7em;
+      color: #b24d1a; }
+  #payment .container {
+    padding: 10px; }
+    #payment .container .panel {
+      border: 1px solid #c6c1b5;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      overflow: hidden; }
+      #payment .container .panel .header {
+        padding: 0.5em;
+        color: #fff;
+        font-size: 120%;
+        background-color: #ebc35e; }
+      #payment .container .panel .body {
+        padding: 0.5em;
+        line-height: 1.7;
+        background-color: #f4f4ef; }
+        #payment .container .panel .body .item .key {
+          display: inline-block;
+          width: 4em;
+          color: #5a5959; }
+        #payment .container .panel .body .btn {
+          outline: none;
+          display: inline-block;
+          padding: 5px;
+          width: 100%;
+          font-weight: normal;
+          line-height: 1.42857143;
+          text-align: center;
+          white-space: nowrap;
+          vertical-align: middle;
+          cursor: pointer;
+          border: 1px solid transparent;
+          background-color: #3da8ed;
+          color: #fff;
+          border-radius: 5px;
+          margin-top: 3vw; }
+        #payment .container .panel .body .coupon {
+          position: relative; }
+          #payment .container .panel .body .coupon .key {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 5px 0; }
+          #payment .container .panel .body .coupon select {
+            text-align: right;
+            color: #5a5959;
+            border-radius: 0px;
+            background-color: transparent;
+            border: none;
+            border-top: 1px solid #5a5959;
+            border-bottom: 1px solid #5a5959;
+            padding: 5px 1em;
+            width: 100%;
+            float: left;
+            outline: none;
+            display: tabel-cell;
+            -webkit-appearance: none;
+               -moz-appearance: none;
+                    appearance: none; }

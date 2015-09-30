@@ -8,7 +8,7 @@ angular.module('paticaApp', [
 ]).config(['$stateProvider',
 '$urlRouterProvider',
 function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/addAddr');
+    $urlRouterProvider.otherwise('/payment/123');
     $stateProvider.state('index',{
         url: '/index',
         templateUrl: 'components/index/index.html',    
@@ -84,6 +84,17 @@ function ($stateProvider, $urlRouterProvider) {
         templateUrl: 'components/editAddr/editAddr.html',    
         controller:'editAddrController',
         title:'修改地址'
+    }).state('payment',{
+        url: '/payment/:id',
+        templateUrl: 'components/payment/payment.html',    
+        controller:'paymentController',
+        title:'支付',
+        resolve:{
+            order:['$stateParams','$http',function($stateParams,$http){
+                return {
+                }
+            }]
+        }
     });
 }]).run(['$rootScope','$interval',function($rootScope,$interval){    
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
