@@ -34,3 +34,7 @@
     #couponsDialog .container input:-ms-input-placeholder {
       /* Internet Explorer 10+ */
       color: #999; }
+
+#couponsDialog .tips {
+  margin-top: 10px;
+  color: #a94442; }

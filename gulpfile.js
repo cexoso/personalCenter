@@ -21,7 +21,9 @@ var gulp = require('gulp'),
     sort = require('gulp-sort'),
     Q = require('q'),
     templateCache = require('gulp-angular-templatecache'),
-    autoprefixer = require('gulp-autoprefixer');
+    autoprefixer = require('gulp-autoprefixer'),
+    httpProxy = require('http-proxy');
+    var proxy = httpProxy.createProxyServer({});
 gulp.task('server', ['scss:watch'], function () {
     connect.server({
         root: ['app','bower_components'],
@@ -29,17 +31,15 @@ gulp.task('server', ['scss:watch'], function () {
         port: 80,
         middleware: function (connect, opt) {
                 return [
-
                     function (req, res, next) {
-                        if (!req.url.match('/api/')) {
+                        if (!req.url.match(/\/api\/|\/mvc\//ig)) {
                             next();
-                        } else {
+                        } else {                            
                             console.log('代理：' + req.url)
-                            var method = req.method;
-                            req.method = 'GET';
-                            req.url += ('-' + method + '.json')
-                            console.log(req.url);
-                            next();
+                            // proxy.web(req, res, { target: 'http://192.168.0.145:8080/Patica2.0'});  
+                            proxy.web(req, res, { target: 'http://www.patica.cn:8080/Patica2.0'}); 
+                            // ?usercode=ohQRxsxXwBlQf5qdTvgecbYYjWGE
+                            // proxy.web(req, res, { target: 'http://localhost:8080/Patica2.0'});                    
                         }
                     }
                 ]
@@ -73,15 +73,20 @@ function clear() {
             force: true
         }));
 };
-
-function distLogic() {
+function jsHint(){
     return gulp.src(['app/scripts/**/*.js', 'app/components/**/*.js'])
+      
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
+}
+function distLogic() {
+    return gulp.src(['app/scripts/**/*.js','app/components/**/*.js'])
         .pipe(sort(function (p1, p2) {
             return -1;
         }))
         .pipe(concat('logic.js'), {
             newLine: ';'
-        })
+        })        
         .pipe(jsmin())
         .pipe(uglify())
         .pipe(rev())
@@ -157,6 +162,7 @@ function distimg() {
 gulp.task('dist_html', ['makeCache', 'distlib', 'distLogic', 'dist_css','distimg'], dist_html);
 gulp.task('makeCache', makeCache);
 gulp.task('distLogic', distLogic);
+gulp.task('jsHint', jsHint);
 gulp.task('distlib', distlib);
 gulp.task('distimg', distimg);
 gulp.task('dist_css', dist_css);

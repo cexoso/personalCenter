@@ -20,6 +20,9 @@
                 height:40vw;
                 width:100%;
                 resize:none;
+                &:disabled{
+                    color:inherit;
+                }
             }
             .btn{
                 outline: none;
@@ -38,6 +41,37 @@
                 border-radius: 5px;
                 margin-top: 3vw;
             }
+            .tag{
+                margin:3px;
+                white-space: nowrap;
+                padding:1.5px 5px;
+                display:inline-block;                
+                border-radius: 2px;
+                transition: background-color .5s;
+                cursor:default;
+                &.active{
+                    color:#fff;
+                }
+                &.active:nth-child(1){
+                    background-color: #FF6666;
+                }
+                &.active:nth-child(2){ 
+                    background-color: #FF9900;
+                }
+                &.active:nth-child(3){
+                    background-color: #006699;
+                }
+                &.active:nth-child(4){
+                    background-color: #339933;
+                }
+                &.active:nth-child(5){
+                    background-color: #33CC99;
+                }
+                &.active:nth-child(6){
+                    background-color: #0099CC;
+                }
+            }
+
         }
     }
 }

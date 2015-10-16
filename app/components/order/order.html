@@ -7,10 +7,10 @@
     </header>
     <div class="nav">
         <div class="nav_group">
-            <a ui-sref="{{nav.uiSref}}" ui-sref-active="active" class='btn' ng-repeat="nav in navBtns">{{nav.name}}</a>
+            <a class='btn' ng-class="{active:nav==active}" ng-repeat="nav in navBtns" ng-click="navClickHandle(nav)">{{nav.name}}</a>
         </div>
     </div>
     <article>
-        <div ui-view="orderview"></div>
+        <div ng-include="'components/order/tpl/orderview.html'" ng-controller="orderviewController"></div>
     </article>
 </section>

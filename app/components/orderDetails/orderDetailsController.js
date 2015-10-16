@@ -1,35 +1,21 @@
 'use strict';
 angular.module('controller')
-.controller('orderDetailsController',['$scope','order',function(s,order){
+.controller('orderDetailsController',['$scope','order','Restangular','baseUrl',function(s,order,rest,baseUrl){
+    s.order=order.data.data;
     s.process=[
-        {id:'1',name:'提交'},
-        {id:'2',name:'回复'},
-        {id:'3',name:'维修'},
-        {id:'4',name:'支付'},
-        {id:'5',name:'评价'}
-    ];//
-    s.order={
-        usercity:'深圳',
-        userarea:'南山区',
-        useraddr:'华侨城创意文化园a3栋208c',
-        username:'李小龙',
-        userPhone:'13333333333',
-        trouble_desc:'苹果 Iphone6 金色 wifi故障',
-        orderid:'112103087689',
-        status:2
-    };
-}]);
-angular.module('directive')
-.directive('process',[function(){
-     return{
-        restrict:"A",        
-        replace:true,
-        template:"<h1>hello</h1>",
-        link:function(s,e,a,c){
-            console.log(s);
-            console.log(e);
-            console.log(a);
-            console.log(c);
+        {status:'6001',name:'已下单'},
+        {status:'6002',name:'已派单'},
+        {status:'6003',name:'待付款'},
+        {status:'6004',name:'待评价'},
+        {status:'6005',name:'已完成'}
+    ];
+    s.cancel=function(){
+        var b=confirm("您确定取消订单？");
+        if(b){
+            console.log("del");
+            rest.all(baseUrl+"api").one("repair","order").remove({orderID:s.order.orderHead.orderID});
+        }else{
+
         }
     }
 }]);

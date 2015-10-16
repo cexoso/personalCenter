@@ -1,51 +1,37 @@
 'use strict';
 angular.module('paticaApp', [  
   'ui.router',
+  'restangular',
   'ngDialog',
   'controller',
   'directive',
+  'services',
   'templates'
 ]).config(['$stateProvider',
 '$urlRouterProvider',
 function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/payment/123');
+    $urlRouterProvider.otherwise('/index');
     $stateProvider.state('index',{
         url: '/index',
         templateUrl: 'components/index/index.html',    
         controller:'indexController',
         title:'个人中心'
-    }).state('order',{        
-        abstract:true,
+    }).state('order',{
+        url:'/order',        
         views:{
             '':{
                 templateUrl: 'components/order/order.html',    
                 controller:'orderController'                
             }
-        }
-    }).state('order.orderview',{
-        url:'/order/:type',
-        title:'我的订单',
-        views:{
-            'orderview':{
-                templateUrl: 'components/order/tpl/orderview.html',    
-                controller:'orderviewController'                
-            }
-        }
+        },
+        title:'我的订单'
     }).state('coupons',{        
-        abstract:true,
+        url:'/coupons',
+        title:'优惠券',
         views:{
             '':{
                 templateUrl: 'components/coupons/coupons.html',    
                 controller:'couponsController'                
-            }
-        }
-    }).state('coupons.couponsview',{
-        url:'/coupons/:type',
-        title:'优惠券',
-        views:{
-            'couponsview':{
-                templateUrl: 'components/coupons/tpl/couponsview.html',    
-                controller:'couponsviewController'                
             }
         }
     }).state('myaddr',{
@@ -59,21 +45,50 @@ function ($stateProvider, $urlRouterProvider) {
         controller:'cusviceController',
         title:'客服热线'
     }).state('orderDetails',{
-        url: '/orderDetails/:id',
+        url: '/orderDetails/:orderID',
         templateUrl: 'components/orderDetails/orderDetails.html',    
         controller:'orderDetailsController',
         title:'订单详情',
         resolve:{
-            order:['$stateParams','$http',function($stateParams,$http){
-                return {
-                }
+            order:['$stateParams','$http','baseUrl',function($stateParams,$http,baseUrl){
+                return $http.get(baseUrl+'api/repair/getRepairCusOrder',{
+                    cache:false,
+                    params:$stateParams
+                });
             }]
         }
     }).state('evaluate',{
-        url: '/evaluate',
+        url: '/evaluate/:orderID',
         templateUrl: 'components/evaluate/evaluate.html',    
         controller:'evaluateController',
-        title:'评价'
+        title:'评价',
+        resolve:{
+            data:['$stateParams','Restangular','baseUrl','$q',function($stateParams,rest,baseUrl,$q){
+                var deferred = $q.defer();
+                var task=rest.all(baseUrl+"api").one("task","repairtask");
+                var data=task.get($stateParams);
+                data.then(function(d){
+                    var data=d.data[0];
+                    if(!data){
+                        deferred.reject('不存在的id');
+                        alert('不存在的id');
+                        history.back();
+                    }else{
+                        deferred.resolve(data);
+                    }
+                },function(d){
+                    deferred.reject(d);
+                    alert("出错了");
+                    console.error(d);
+                    history.back();
+                });
+                return deferred.promise;
+            }],
+            task:['Restangular','baseUrl',function(rest,baseUrl){
+                var task=rest.all(baseUrl+"api").one("task","repairtask");
+                return task;
+            }]
+        }
     }).state('addAddr',{
         url: '/addAddr',
         templateUrl: 'components/addAddr/addAddr.html',    
@@ -83,27 +98,51 @@ function ($stateProvider, $urlRouterProvider) {
         url: '/editAddr/:id',
         templateUrl: 'components/editAddr/editAddr.html',    
         controller:'editAddrController',
-        title:'修改地址'
+        title:'修改地址',
+        resolve:{
+            address:['$stateParams','$http','baseUrl',function($stateParams,$http,baseUrl){
+                return $http.get(baseUrl+'api/center/address',{params:$stateParams});
+            }]
+        }
     }).state('payment',{
-        url: '/payment/:id',
+        url: '/payment/:orderID',
         templateUrl: 'components/payment/payment.html',    
         controller:'paymentController',
         title:'支付',
         resolve:{
-            order:['$stateParams','$http',function($stateParams,$http){
-                return {
-                }
+            order:['$stateParams','$http','baseUrl','$q','$filter',function($stateParams,$http,baseUrl,$q,$filter){
+                var deferred = $q.defer();
+                $http.get(baseUrl+'api/repair/getRepairCusOrder',{
+                    cache:false,
+                    params:$stateParams
+                }).success(function(d){
+                    if(d.code!=200||!d.data.orderHead){
+                        deferred.reject(d);
+                        alert($filter('json')(d));
+                        history.back();
+                    }else{
+                        var data=d.data;
+                        deferred.resolve(data);
+                    }
+                }).error(function(d){
+                    deferred.reject(d);
+                    alert($filter('json')(d));
+                    history.back();
+                });
+                return deferred.promise;
             }]
         }
     });
-}]).run(['$rootScope','$interval',function($rootScope,$interval){    
+}]).run(['$rootScope','$interval','$location','user','searchParse',function($rootScope,$interval,$location,user,searchParse){    
+    user.set('wxOpenid',searchParse('usercode'));
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
         if(toState.title){
             $rootScope.title=toState.title; 
         }
     });
-}]);
+}])
 
 angular.module('controller', []);
 angular.module('directive', []);
+angular.module('services', []);
 angular.module('templates', []);

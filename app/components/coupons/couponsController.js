@@ -1,15 +1,19 @@
 'use strict';
 angular.module('controller')
-.controller('couponsController',['$scope','ngDialog',function(s,ngDialog){
+.controller('couponsController',['$scope','ngDialog','$http','$state',function(s,ngDialog,$http,$state){
     var user={};
     user.headimgurl="/images/head.jpg";
     user.nickname='Lucky';
     s.user=user;
     var navBtns=[
-        {uiSref:'coupons.couponsview({type:1})',name:'优惠券'},        
-        {uiSref:'coupons.couponsview({type:2})',name:'已使用'},
-        {uiSref:'coupons.couponsview({type:3})',name:'已过期'}
+        {url:'api/coupons/getCustomerCoupons',name:'优惠券'},        
+        {url:'api/coupons/getUsedCoupons',name:'已使用'},
+        {url:'api/coupons/getExpireCoupons',name:'已过期'}
     ]
+    s.navClickHandle=function(nav){
+        s.active=nav;
+    }
+    s.active=navBtns[0];
     var dialog={};
     s.exchange=function(){
         angular.extend(dialog,ngDialog.open({
@@ -22,9 +26,11 @@ angular.module('controller')
                     return dialog;
                 }]
             }
-        }));
-        dialog.closePromise.then(function(d){
-            console.log(d);
+        }));        
+        dialog.closePromise.then(function(d){            
+            if(d.value=="success"){
+                $state.reload();
+            }
         });
     };    
     s.navBtns=navBtns;

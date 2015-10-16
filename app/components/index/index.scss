@@ -1,4 +1,41 @@
 @import "app/css/base";
+#loading{
+    display:none;
+    background-color: rgba(155, 155, 155, 0.5);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    .rotate{
+        position:absolute;
+        top: 45%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        div{
+            width:10vw;
+            height:10vw;
+            background: rgba(0,0,0,0) url("/images/loading.svg") no-repeat scroll center center / 100% auto;
+            
+        }
+    }
+    &.active{
+        display:block;
+        .rotate{
+            div{
+                animation: rotate 2.5s linear 0s infinite normal;            
+            }       
+        }
+    }
+}
+@keyframes rotate{
+    0%{
+        transform:rotate(0deg);
+    }    
+    100%{
+        transform:rotate(360deg);
+    }
+}
 #index>header{
     background: url($img+'headbg.jpg') center top/100% auto no-repeat;
     height: 43.5vw;

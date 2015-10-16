@@ -1,6 +1,9 @@
 @import "app/css/base";
 #addAddr{
     padding: 10px;
+    .valid{
+        background-color:#f54747;
+    }
     .panel{
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
@@ -47,13 +50,14 @@
                 }
                 select{
                     height:30px;
-                    width:33%;
+                    width:33.33%;
                     float:left;
                     border:none;
                     outline:none;
                     display:tabel-cell;
                     appearance:none;
                 }
+
                 input{
                     border-bottom-left-radius: 0;
                     border-top-left-radius: 0;

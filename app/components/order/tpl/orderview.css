@@ -18,18 +18,19 @@
       padding: 7px;
       font-size: 12px; }
       #orderview .orderdisplay .body .icon {
-        display: inline-block;
+        vertical-align: middle;
         height: 17vw;
         width: 15vw;
-        float: left;
+        display: table-cell;
         background: url("/images/ordershow.png") no-repeat 0 0/30vw auto; }
       #orderview .orderdisplay .body .fix {
         background-position: 0 0; }
       #orderview .orderdisplay .body .sale {
         background-position: -15vw 0; }
       #orderview .orderdisplay .body .display {
-        float: left;
-        padding: 0 10px; }
+        display: table-cell;
+        padding: 0 10px;
+        vertical-align: middle; }
         #orderview .orderdisplay .body .display .name {
           color: #484444;
           font-size: 125%; }
@@ -40,19 +41,22 @@
           #orderview .orderdisplay .body .display .quote i {
             font-style: normal;
             font-size: 75%; }
-      #orderview .orderdisplay .body .operation .btn {
-        float: right;
-        outline: none;
-        display: inline-block;
-        padding: 5px 15px;
-        font-weight: normal;
-        line-height: 1.42857143;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        cursor: pointer;
-        border: 1px solid #d2d2d2;
-        background-color: #f5bb40;
-        color: #fff;
-        border-radius: 5px;
-        margin-top: 3vw; }
+      #orderview .orderdisplay .body .operation {
+        display: table-cell;
+        width: 1%; }
+        #orderview .orderdisplay .body .operation .btn {
+          float: right;
+          outline: none;
+          display: inline-block;
+          padding: 5px 15px;
+          font-weight: normal;
+          line-height: 1.42857143;
+          text-align: center;
+          white-space: nowrap;
+          vertical-align: middle;
+          cursor: pointer;
+          border: 1px solid #d2d2d2;
+          background-color: #f5bb40;
+          color: #fff;
+          border-radius: 5px;
+          margin-top: 3vw; }

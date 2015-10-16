@@ -7,33 +7,29 @@
                     <span class="addon">
                         <span class="img"></span>
                     </span>
-                    <input type="text" name="name" placeholder="姓名"></div>
+                    <input type="text" name="name" ng-model="data.name" placeholder="姓名"></div>
                 <div class="input-group form-control phone">
                     <span class="addon">
                         <span class="img"></span>
                     </span>
-                    <input type="number" placeholder="电话"></div>
+                    <input type="number" ng-model="data.phone" placeholder="电话"></div>
                 <div class="input-group form-control provin">
                     <span class="addon">
                         <span class="img"></span>
                     </span>
-                    <select require name="province">
+                    <select require name="province" ng-model="data.province" ng-options="province.code as province.name for province in addrconf.provinces">
                         <option value="" disabled selected>省</option>
-                        <option value="1">北京</option>
-                        <option value="2">杭州</option>
                     </select>
-                    <select>
+                    <select require name="city" ng-model="data.city" ng-options="city.code as city.name for city in addrconf.citys">
                         <option value="" disabled selected>市</option>
-                        <option value="1">北京</option>
                     </select>
-                    <select>
+                    <select require name="area" ng-model="data.area" ng-options="area.code as area.name for area in addrconf.areas">
                         <option value="" disabled selected>县</option>
-                        <option value="1">北京</option>
                     </select>
                 </div>
                 <div class="input-group form-control addr">
-                    <input type="text" placeholder="详细地址"></div>
-                <button class="btn">提 交</button>
+                    <input type="text" ng-model="data.addressDetails" placeholder="详细地址"></div>
+                <button class="btn" ng-click="post()">提 交</button>
             </form>
         </div>
     </div>

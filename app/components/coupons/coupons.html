@@ -8,10 +8,10 @@
     </header>
     <div class="nav">
         <div class="nav_group">
-            <a ui-sref="{{nav.uiSref}}" ui-sref-active="active" class='btn' ng-repeat="nav in navBtns">{{nav.name}}</a>
+            <a class='btn' ng-class="{active:nav==active}" ng-click="navClickHandle(nav)" ng-repeat="nav in navBtns">{{nav.name}}</a>
         </div>
     </div>
     <article>
-        <div ui-view="couponsview"></div>
+        <div ng-include="'components/coupons/tpl/couponsview.html'" ng-controller="couponsviewController"></div>
     </article>
 </section>

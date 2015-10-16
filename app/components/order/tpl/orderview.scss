@@ -20,11 +20,13 @@
             background-color: white;
             padding: 7px;      
             font-size:12px;
+            
             .icon{
-                display: inline-block;
-                height:17vw;
+                
+                vertical-align: middle;
+                height: 17vw;                        
                 width: 15vw;
-                float:left;
+                display:table-cell;
                 background: url($img+'ordershow.png') no-repeat 0 0/30vw auto;
             }
             .fix{
@@ -34,8 +36,9 @@
                 background-position: -15vw 0;        
             }
             .display{
-                float:left;
+                display:table-cell;
                 padding: 0 10px;
+                vertical-align: middle;
                 .name{
                     color:#484444;
                     font-size: 125%;
@@ -52,6 +55,8 @@
                 }
             }
             .operation{
+                display:table-cell;
+                width:1%;
                 .btn{
                     float:right;
                     outline: none;

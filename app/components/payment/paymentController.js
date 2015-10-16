@@ -1,33 +1,33 @@
 'use strict';
 angular.module('controller')
-.controller('paymentController',['$scope','order',function(s,order){
-    s.order={
-        usercity:'深圳',
-        userarea:'南山区',
-        useraddr:'华侨城创意文化园a3栋208c',
-        username:'李小龙',
-        userPhone:'13333333333',
-        trouble_desc:'苹果 Iphone6 金色 wifi故障',
-        orderid:'112103087689',
-        status:2,
-        price:1243
+.controller('paymentController',['$scope','order','wx','$filter','$http','baseUrl','user',function(s,order,wx,$filter,$http,baseUrl,user){
+    s.orderHead=order.orderHead;
+    s.orderBody=order.orderBody;
+    s.coupon={};
+    s.ctip="正在查找优惠券";
+    $http.get(baseUrl+"api/coupons/getCustomerCoupons",{
+        cache:false,
+        params:angular.extend({},{wxOpenid:user.get('wxOpenid')})
+    }).success(function(d){
+        if(d.code!=200){
+            console.log(d.msg);
+            s.ctips=d.msg;
+        }else{
+            s.coupons=d.data;  
+            if(d.data.length!=0){
+              s.ctip="请选择优惠券";
+            }else{
+              s.ctip="无可用优惠券";
+            }
+        }
+    }).error(function(d){
+        s.ctip="查找失败";
+    }); 
+    function pay(){
+      wx.payNewVer({
+        orderID:s.orderHead.orderID,
+        customerCardID:s.coupon.customerCardID
+      });
     };
-    s.coupons = [
-      {
-        id: '00001',
-        name: '100'
-      },
-      {
-        id: '00002',
-        name: '200'
-      },
-      {
-        id: '00003',
-        name: '300'
-      },
-      {
-        id: '00004',
-        name: '400'
-      }
-    ];
+    s.pay=pay;
 }]);

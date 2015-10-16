@@ -84,10 +84,15 @@ $defaultColor:#434343;
                 line-height: 1.7;
                 background-color: #f4f4ef;
                 .item{
+                    font-size: 0;
                     .key{
                         display: inline-block;
                         width:4em;
                         color:#5a5959;
+                        font-size:14px;
+                    }
+                    .value{
+                        font-size:14px;   
                     }
                 }
                 .btn{
@@ -109,25 +114,29 @@ $defaultColor:#434343;
                 }
                 .coupon{
                     position:relative;
+                    border-top: 1px solid #5a5959;
+                    border-bottom: 1px solid #5a5959;
+                    font-size:0;
+                    display:inline-block;
+                    width:100%;
                     .key{
-                        position:absolute;
-                        top: 0;
+                        position: absolute;
+                        top:0;
+                        bottom:0;
                         left:0;
-                        padding: 5px 0;
+                        font-size:14px;
                     }
                     select{
-                        text-align: right;
-                        color:#5a5959;
+                        font-size: 14px;
+                        line-height:18px;
+                        vertical-align: middle;
+                        display:inline-block;
                         border-radius: 0px;
                         background-color: transparent;
                         border:none;
-                        border-top: 1px solid #5a5959;
-                        border-bottom: 1px solid #5a5959;
-                        padding: 5px 1em;
                         width:100%;
-                        float:left;
                         outline:none;
-                        display:tabel-cell;
+                        padding: 0 4em;
                         appearance:none;
                     }
                 }

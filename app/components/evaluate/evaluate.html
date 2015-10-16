@@ -4,9 +4,15 @@
             服务评分
         </div>
         <div class="body">
-            <div evaluate-star="5" ng-model="evaluateStar"></div>
-            <textarea class="text" ng-model="data.evaluate"></textarea>
-            <button class="btn">提交评论</button>
+            <div evaluate-star="5" ng-disabled="data.orderStatus==6004" ng-model="data.evaluateStar"></div>        
+            <div taglist ng-model="data.evaluateTag" ng-disabled="data.orderStatus==6004"> 
+                <span class="tag" ng-class="{'active':tag.active}" ng-repeat="tag in taglist" tag="tag.name">{{tag.name}}
+                </span>
+            </div>
+            <textarea class="text" ng-disabled="data.orderStatus==6004" ng-model="data.evaluate"></textarea>        
+            <button class="btn" ng-if="data.orderStatus==6004" ng-click="submit()">提交评论</button>
+            <button class="btn" ng-if="data.orderStatus!=6004" ng-click="back()">返&#x3000;&#x3000;回</button>
         </div>
     </div>
 </div>
+

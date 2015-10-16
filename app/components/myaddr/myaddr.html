@@ -1,20 +1,22 @@
 <div id="myaddr">
-    <div class='addrnote' ng-class="{active:addr.default}" ng-repeat="addr in addrs" ng-click="test()">
-        <div>
+    
+    <div class='addrnote' ng-class="{active:addr.default}" ng-repeat="addr in addrs.data" ng-click="setDefault(addr)">
+        
+        <div>        
             <span class="name">{{addr.name}}</span>
-            <span class="tel">{{addr.tel}}</span>
+            <span class="tel">{{addr.phone}}</span>
         </div>
         <div class="addr">
-            {{addr.addr}}
+            {{addr.provinceName}} {{addr.cityName}} {{addr.addressDetails}}
         </div>
         <div class="hr"></div>
         <div class="clearfix">
             <span class="check">
-                <span checkbox ng-model="addr.default"></span><label>默认</label>
+                <span checkbox ng-model="addr.isDefault"></span><label>默认</label>
             </span>
             <span class="operation">
-                <span class="edit" ng-click="edit($event)"><i></i>编辑</span>
-                <span class="delete" ng-click="delete($event)"><i></i>删除</span>
+                <span class="edit" ng-click="edit($event,addr)"><i></i>编辑</span>
+                <span class="delete" ng-click="delete($event,addr)"><i></i>删除</span>
             </span>
         </div>
     </div> 

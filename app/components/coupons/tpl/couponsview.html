@@ -1,15 +1,15 @@
 <div id="couponsview">
     <div ng-repeat="coupon in coupons">
         <div class="coupon">
-            <div class="panel clearfix" ng-class="coupon.color">
+            <div class="panel clearfix" ng-class="'green'">
                 <span class="icon"></span>
-                <span class="font"> <i>{{coupon.amount}}</i>
+                <span class="font"> <i>{{coupon.cardPrice}}</i>
                     元手机维修优惠券
                 </span>
             </div>
             <div class="footer clearfix">
-                <span class="confine">使用限制:消费满{{coupon.confine}}使用</span>
-                <span class="deadline">有效期至:{{coupon.deadline|date:"yyyy.M.d"}}</span>
+                <span class="confine">使用限制:消费满{{coupon.useLimitPrice}}使用</span>
+                <span class="deadline">有效期至:{{coupon.expireTime|date:"yyyy.M.d"}}</span>
             </div>
         </div>
     </div>

@@ -6,8 +6,22 @@ angular.module('controller')
     user.nickname='Lucky';
     s.user=user;
     var navBtns=[
-        {uiSref:'order.orderview({type:1})',name:'当前订单'},        
-        {uiSref:'order.orderview({type:2})',name:'已完成'}
+        {
+            queryObj:{
+                isFinish:'0'
+            },
+            name:'当前订单'
+        },
+        {
+            queryObj:{
+                isFinish:'1'
+            },
+            name:'已完成'
+        }
     ]
     s.navBtns=navBtns;
+    s.navClickHandle=function(nav){
+        s.active=nav;
+    }
+    s.active=navBtns[0];
 }]);

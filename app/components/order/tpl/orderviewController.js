@@ -1,32 +1,21 @@
 'use strict';
 angular.module('controller')
-.controller('orderviewController',['$scope','$stateParams','$interval','$state',function(s,$stateParams,$interval,$state){
-    console.log($stateParams);
-    var orders=[
-        {name:"iphone4换屏",orderid:"521023110001",type:'fix',status:'6003',statusName:'待付款',quote:200,ordertime:'1442558466955'},
-        {name:"iphone4热卖",orderid:"521023110011",type:'sale',status:'6004',statusName:'待评价',quote:200,ordertime:'1442558466955'},
-        {name:"iphone5电源",orderid:"521023110012",type:'fix',status:'6005',statusName:'已完成',quote:200,ordertime:'1442558466955'},
-        {name:"iphone4",orderid:"521023110002",type:'fix',status:'6002',statusName:'派单中',quote:200,ordertime:'1442558466955'}
-    ];
-    s.orders=orders;
-    s.orderClickHandle=function(e){
+.controller('orderviewController',['$scope','$stateParams','$interval','$state','$http','user','baseUrl',function(s,$stateParams,$interval,$state,$http,user,baseUrl){
+    s.$watch('active',function(){
+        $http.get(baseUrl+'api/repair/getRepairOrder',{
+            cache:false,
+            params:angular.extend({},{wxOpenid:user.get("wxOpenid")},s.active.queryObj)
+        }).success(function(d){
+            console.log(d.data)
+            s.orders=d.data;
+        });
+    })
+    
+    s.orderClickHandle=function(e,order){
         var tag=e.target;
+        
         if(angular.lowercase(tag.tagName)!=='a'){
-            $state.go('orderDetails',{id:1});
+            $state.go('orderDetails',order.orderHead);
         }
     }
 }]);
-// angular.module('controller')
-// .directive('test',function(){
-//     return {
-//         require:"ngModel",
-//         link:function(s,e,a,c){
-//             c.$parsers.push(function(val){ 
-//                 return val+1;
-//             });
-//             c.$formatters.push(function(val){                
-//                 return 's'+val;
-//             });
-//         }
-//     }
-// });

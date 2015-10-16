@@ -1,0 +1,28 @@
+#confirm{
+    .footer{
+        
+        button{
+            float:left;
+            outline: none;
+            display: inline-block;
+            padding: 3px 12px;
+            font-weight: normal;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;                
+            border: 1px solid transparent;
+            color:#fff;            
+            margin-top: 3vw;
+        }
+        .ok{
+            width: 66%;
+            background-color: brown;
+        }
+        .cancel{
+            width:33%;
+            background-color: #5ea723;
+        }
+    }
+}
