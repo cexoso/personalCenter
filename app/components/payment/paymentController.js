@@ -1,13 +1,16 @@
 'use strict';
 angular.module('controller')
-.controller('paymentController',['$scope','order','wx','$filter','$http','baseUrl','user',function(s,order,wx,$filter,$http,baseUrl,user){
+.controller('paymentController',['$scope','order','wx','$filter','$http','baseUrl','user','$q','$state',function(s,order,wx,$filter,$http,baseUrl,user,$q,$state){
     s.orderHead=order.orderHead;
     s.orderBody=order.orderBody;
-    s.coupon={};
+    
     s.ctip="正在查找优惠券";
-    $http.get(baseUrl+"api/coupons/getCustomerCoupons",{
+    $http.get(baseUrl+"api/coupons/getCouponsUseable",{
         cache:false,
-        params:angular.extend({},{wxOpenid:user.get('wxOpenid')})
+        params:angular.extend({},{
+            wxOpenid:user.get('wxOpenid'),
+            orderID:s.orderHead.orderID
+        })
     }).success(function(d){
         if(d.code!=200){
             console.log(d.msg);
@@ -15,7 +18,7 @@ angular.module('controller')
         }else{
             s.coupons=d.data;  
             if(d.data.length!=0){
-              s.ctip="请选择优惠券";
+              s.ctip="未选择";
             }else{
               s.ctip="无可用优惠券";
             }
@@ -26,8 +29,15 @@ angular.module('controller')
     function pay(){
       wx.payNewVer({
         orderID:s.orderHead.orderID,
-        customerCardID:s.coupon.customerCardID
+        customerCardID:s.coupon&&s.coupon.customerCardID||null
+      }).then(function(d){
+        alert("您已付款成功");
+        $state.go('order');
+      },function(d){
+        if(d=="fail"){
+            alert("支付失败.");
+        }
       });
     };
-    s.pay=pay;
+    s.pay=pay;   
 }]);

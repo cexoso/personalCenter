@@ -8,26 +8,37 @@
             <span class="icon" ng-class="order.type"></span>
             <span class="display">
                 <div class="quote">
-                    <label>总价:</label> <i>￥</i>
+                    <label>总&#x3000;价:</label> <i>￥</i>
                     {{order.orderHead.totlePrice|totlePrice}}
                 </div>
                 <div class="ordertime">
-                    <label>日期:</label>
+                    <label>日&#x3000;期:</label>
                     {{order.orderHead.orderTime|date:'yyyy-M-d'}}
+                </div>
+                <div class="item">
+                    <span class="key">
+                        产&#x3000;品:
+                    </span>
+                    <span class="value">
+                        {{order.orderBody[0].brandName}} {{order.orderBody[0].goodsName}} {{order.orderBody[0].colorName}}
+                    </span>
                 </div>
                 <div class="item" ng-repeat="o in order.orderBody">
                     <span class="key">
-                        <span ng-if="$index==0">产&#x3000;品:</span>
+                        <span ng-if="$index==0">故&#x3000;障:</span>
                     </span>
                     <span class="value">
-                        {{o.brandName}} {{o.goodsName}} {{o.colorName}} {{o.itemName}}
+                        {{o.itemName}}
                     </span>
                 </div>
+                 
+                 
             </span>
 
             <span class="operation">
-                <a class="btn" ng-if="order.orderHead.orderStatus==6003"  ui-sref="payment(order.orderHead)">付 款</a>
-                <a class="btn" ng-if="order.orderHead.orderStatus==6004"  ui-sref="evalute(order.orderHead)">评 价</a>
+                <a class="btn" ng-if="order.orderHead.orderStatus<=6003"  ui-sref="payment(order.orderHead)">付 款</a>
+                <a class="btn" ng-if="order.orderHead.orderStatus==6004"  ui-sref="evaluate(order.orderHead)">评 价</a>
+                <a class="btn" ng-if="order.orderHead.orderStatus==6005"  ui-sref="evaluate(order.orderHead)">查看评价</a>
             </span>
         </div>
     </div>

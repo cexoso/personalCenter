@@ -1,45 +1,81 @@
 <div id="payment">
     <div class="container">
         <div class="panel">
-            <div class="header">订单信息</div>
+            <div class="header">订单{{orderHead.orderID}}</div>
             <div class="body">
-                <div class="item">
-                    <span class="key">订单号:</span>
-                    <span class="value">{{orderHead.orderID}}</span>
-                </div>
                 <div ng-repeat="o in orderBody" class="item">
-                    <span class="key">产&#x3000;品:</span>
-                    <span class="value">{{o.brandName}} {{o.goodsName}} {{o.colorName}} {{o.itemName}}</span>
+                    <span class="key">产&#x3000;品：</span>
+                    <span class="value">
+                        {{o.brandName}} {{o.goodsName}} {{o.colorName}} {{o.itemName}}
+                    </span>
                 </div>
                 <div class="item">
-                    <span class="key">用&#x3000;户:</span>
-                    <span class="value">{{orderHead.name}} {{orderHead.phone}}</span>
+                    <span class="key">用&#x3000;户：</span>
+                    <span class="value">{{orderHead.name}}</span>
                 </div>
                 <div class="item">
-                    <span class="key">地&#x3000;址</span>
-                    <span class="value addr">{{orderHead.provinceName}} {{orderHead.cityName}} {{orderHead.areaName}}</span>
+                    <span class="key">电&#x3000;话：</span>
+                    <span class="value">{{orderHead.phone}}</span>
+                </div>
+                <div class="item">
+                    <span class="key">地&#x3000;址：</span>
+                    <span class="value addr">
+                        {{orderHead.provinceName}} {{orderHead.cityName}} {{orderHead.areaName}}
+                    </span>
                 </div>
                 <div class="item">
                     <span class="key"></span>
                     <span class="value addr">{{order.useraddr}}</span>
                 </div>
                 <div class="item">
-                    <span class="key">价&#x3000;格</span>
-                    <span class="value addr">{{orderHead.totlePrice|totlePrice}}</span>
+                    <span class="key">报&#x3000;价：</span>
+                    <span class="value">{{orderHead.totlePrice|totlePrice|currency:"￥"}}</span>
                 </div>
-                <div class="coupon">
-                    <span class="key">优惠券</span>
-                    <span class="value clearfix">
-                        <select ng-model="coupon" ng-options="coupon.cardPrice for coupon in coupons">
-                            <option value="" selected>{{ctip}}</option>
-                        </select>
+
+            </div>
+            <div class="coupon">
+                <div class="display">
+                    <span class="icon">券</span>
+                    <span class="title">优惠券：</span>
+                    {{coupon.cardPrice|currency:'￥'}}
+                    <span class="ctip" ng-hide="coupon">{{ctip}}</span>
+                </div>
+                <select ng-model="coupon" ng-options="coupon.cardPrice|currency:'￥' for coupon in coupons">
+                    <option value="" selected>{{ctip}}</option>
+                </select>
+            </div>
+            <div class="tips" ng-show="coupon">
+                <div class="clearfix">
+                    <div class="content clearfix">
+                        <div class="item">
+                            <span class="key">名&#x3000;&#x3000;称：</span>
+                            <span class="value">{{coupon.cardName}}</span>
+                        </div>
+                        <div class="item">
+                            <span class="key">有&ensp;效&ensp;期：</span>
+                            <span class="value">{{coupon.expireTime|date:"yyyy-MM-d"}}</span>
+                        </div>
+                        <div class="item">
+                            <span class="key">描&#x3000;&#x3000;述：</span>
+                            <span class="value">{{coupon.cardDesc}}</span>
+                        </div>
+                    </div>
+                    <!-- <div class="quote">
+                    <span class="res">
+                        报价:{{orderHead.totlePrice|totlePrice}}-{{coupon.cardPrice}}={{orderHead.totlePrice-coupon.cardPrice}}
                     </span>
                 </div>
-                <div class="tips">
-                    {{coupon}}
-                </div>
-                <button class="btn" ng-click="pay()">支付</button>
+                -->
             </div>
         </div>
+        <div class="footer clearfix">
+            <div class="pay">
+                实付款:￥
+                <span class="amount">{{orderHead.totlePrice-coupon.cardPrice}}</span>
+            </div>
+            <button class="btn" ng-click="pay()">支&#x3000;付</button>
+        </div>
     </div>
+</div>
+
 </div>

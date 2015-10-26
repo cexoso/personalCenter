@@ -38,8 +38,13 @@
           #addAddr .panel .body .input-group .addon .img {
             width: 30px;
             height: 30px;
-            display: block;
+            display: block; }
+          #addAddr .panel .body .input-group .addon .name {
             background: url("/images/name.png") no-repeat scroll 0 0/30px 30px; }
+          #addAddr .panel .body .input-group .addon .tel {
+            background: url("/images/tel.jpg") no-repeat scroll 0 0/30px 30px; }
+          #addAddr .panel .body .input-group .addon .addr {
+            background: url("/images/addr.jpg") no-repeat scroll 0 0/30px 30px; }
         #addAddr .panel .body .input-group select {
           height: 30px;
           width: 33.33%;

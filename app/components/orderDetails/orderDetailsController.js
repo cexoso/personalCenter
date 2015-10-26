@@ -12,10 +12,13 @@ angular.module('controller')
     s.cancel=function(){
         var b=confirm("您确定取消订单？");
         if(b){
-            console.log("del");
-            rest.all(baseUrl+"api").one("repair","order").remove({orderID:s.order.orderHead.orderID});
+            rest.all(baseUrl+"api").one("repair","order").remove({orderID:s.order.orderHead.orderID}).then(function(){
+                history.back();
+            });
         }else{
-
         }
+    }
+    s.back=function(){
+        history.back();
     }
 }]);

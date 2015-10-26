@@ -5,88 +5,25 @@ $activeColor:#f9dd33;
 $defaultColor:#434343;
 #payment{
     min-height: 100vh;
-    background-color: #e5e5e0;
-    &>.header{
-        background:url($img+'detail_header_bg.jpg') no-repeat 0 0/100% auto;
-        height:50vw;
-        position:relative;
-        .container{
-            margin-left:(100%/$item)/2;
-            width:100%/$item*($item+-1);
-            position:absolute;
-            top: 20vw;
-            .node{
-                float:left;
-                width:(100%/($item+-1)); 
-                position:relative;            
-                text-align: center;
-                .point{
-                    width:100%;
-                    background-color: $defaultColor;
-                    box-shadow: 0 0px 3px 0 #2d2d2d inset;
-                    height:$point-size/2;
-                }
-                &::after{
-                    background-color: $defaultColor;
-                    box-shadow: 0 0px 3px 0 #2d2d2d inset;
-                    content: " ";
-                    height: $point-size;
-                    right: -$point-size;
-                    margin: 0 auto;
-                    position: absolute;
-                    top: 50%;
-                    width: $point-size;
-                    border-radius: 50%;
-                    transform:translate(-50%,-50%);
-                    z-index: 1000;
-                }
-                &.active::after{
-                    background-color:$activeColor;
-                    box-shadow: 0 -3px 2px 0 #8b8120 inset;
-                }
-                &.active .point{
-                    background-color:$activeColor;
-                }
-                &:first-child{
-                    width:0; 
-                }
-                .text{
-                    color:#fff;
-                    position: absolute;  
-                    right: -2em;
-                    top: -2em;
-                    transform:translate(-50%,-50%);
-                    white-space: nowrap;
-                }
-            }
-        }
-        .tips{
-            margin:2em -0.7em;
-            color:#b24d1a;
-        }
-    }
+    background-color: #e8eaeb;    
     .container{
-        padding: 10px;
+        padding-top: 10px;
         .panel{
             border:1px solid #c6c1b5;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
             overflow: hidden;
             .header{
                 padding: 0.5em;
                 color:#fff;
-                font-size:120%;
-                background-color: #ebc35e;
+                background-color: #3b83d5;                
             }
             .body{
                 // #272727
                 padding: 0.5em;
                 line-height: 1.7;
-                background-color: #f4f4ef;
+                background-color: #fff;
                 .item{
                     font-size: 0;
-                    .key{
-                        display: inline-block;
+                    .key{                        
                         width:4em;
                         color:#5a5959;
                         font-size:14px;
@@ -95,11 +32,108 @@ $defaultColor:#434343;
                         font-size:14px;   
                     }
                 }
+            }
+            .coupon{
+                position:relative;
+                margin-top:10px;
+                background-color: #85b4e8;
+                vertical-align: middle;
+                font-size:0;                
+                box-shadow: 0 0 2px 0px #777 inset;
+                select{
+                    font-size:14px;
+                    color:#fff;            
+                    vertical-align: middle;                        
+                    border-radius: 0px;
+                    background-color: transparent;
+                    border:none;
+                    outline:none;
+                    appearance:none;
+                    width:100%;
+                    opacity: 0;
+                    height: 30px;
+                }
+                .display{
+                    z-index:0;
+                    padding-left:0.5em;
+                    font-size: 14px;
+                    line-height: 30px;
+                    vertical-align: middle;
+                    position:absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;    
+                    color:#fff;     
+                    .ctip{
+                        float: right;
+                    }
+                    .icon{
+                        color:#fff;
+                        background-color: #bb262a;
+                        border-radius: 2px;
+                        padding:0 5px;
+                        margin-right:5px;
+                    }
+
+                }
+            }
+            .tips{
+                padding: 5px;
+                border-top:1px solid #cfcfcf;
+                background-color: #fff;
+                .title{
+                    float:left;
+                    margin-right:5px;
+                    .icon{
+                        color:#fff;
+                        background-color: #bb262a;
+                        border-radius: 2px;
+                        padding:0 5px;
+                    }
+                }
+                .content{                    
+                    line-height: 1.6;
+                    .item{
+                    font-size: 0;
+                    .key{                        
+                        width:4em;
+                        color:#5a5959;
+                        font-size:14px;
+                    }
+                    .value{
+                        font-size:14px;   
+                    }
+                }
+                }
+                .quote{
+                    border-top: 1px solid #cfcfcf;
+                }
+            }
+            .footer{
+                position: fixed;
+                bottom: 0;
+                left:0;
+                right:0;
+                height:43px;
+                .pay{
+                    color:#fff;
+                    font-size:14px;
+                    float:left;
+                    width:60%;
+                    height: 100%;
+                    line-height: 43px;
+                    vertical-align: bottom;
+                    background-color: #484848;
+                    .amount{
+                        font-size:200%;
+                    }
+                }
                 .btn{
                     outline: none;
-                    display: inline-block;
-                    padding: 5px;
-                    width:100%;
+                    float:left;
+                    display: inline-block;                    
+                    width:40%;
                     font-weight: normal;
                     line-height: 1.42857143;
                     text-align: center;
@@ -107,40 +141,12 @@ $defaultColor:#434343;
                     vertical-align: middle;
                     cursor: pointer;                
                     border: 1px solid transparent;
-                    background-color: #3da8ed;
+                    background-color: #f4be66;
                     color:#fff;
-                    border-radius: 5px;
-                    margin-top: 3vw;
+                    height: 100%;
+                    font-size:150%;
+                    font-weight: 800;
                 }
-                .coupon{
-                    position:relative;
-                    border-top: 1px solid #5a5959;
-                    border-bottom: 1px solid #5a5959;
-                    font-size:0;
-                    display:inline-block;
-                    width:100%;
-                    .key{
-                        position: absolute;
-                        top:0;
-                        bottom:0;
-                        left:0;
-                        font-size:14px;
-                    }
-                    select{
-                        font-size: 14px;
-                        line-height:18px;
-                        vertical-align: middle;
-                        display:inline-block;
-                        border-radius: 0px;
-                        background-color: transparent;
-                        border:none;
-                        width:100%;
-                        outline:none;
-                        padding: 0 4em;
-                        appearance:none;
-                    }
-                }
-                
             }
         }
     }

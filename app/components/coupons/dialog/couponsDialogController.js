@@ -1,7 +1,12 @@
 'use strict';
 angular.module('controller')
 .controller('couponsDialogController',['$scope','dialog','$http','user','$timeout','baseUrl',function(s,dialog,$http,user,$timeout,baseUrl){
-    s.clickHandle=function(){
+    s.clickHandle=clickHandle;
+    s.cancel=cancel;
+    function cancel(){
+        dialog.close("cancel");
+    }
+    function clickHandle(){        
         if(!s.cardCode){
             s.tips="请输入兑换码";
             return;
@@ -21,6 +26,4 @@ angular.module('controller')
             s.tips="d";
         });
     }
-    
-    
 }]);

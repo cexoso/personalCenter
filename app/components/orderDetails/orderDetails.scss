@@ -84,11 +84,16 @@ $defaultColor:#434343;
                 line-height: 1.7;
                 background-color: #f4f4ef;
                 .item{
+                    font-size:0;
                     .key{
-                        display: inline-block;
-                        width:4em;
+                        display:inline-block;
+                        font-size:14px;
+                        width:4.5em;
                         color:#5a5959;
                     }
+                    .value{
+                        font-size:14px;
+                    }                    
                 }
                 .btn{
                     outline: none;

@@ -1,9 +1,9 @@
 'use strict';
 angular.module('controller')
-.controller('couponsController',['$scope','ngDialog','$http','$state',function(s,ngDialog,$http,$state){
-    var user={};
-    user.headimgurl="/images/head.jpg";
-    user.nickname='Lucky';
+.controller('couponsController',['$scope','ngDialog','$http','$state','user',function(s,ngDialog,$http,$state,USER){
+    var user={};    
+    user.headimgurl=USER.get("wxHeadImage");
+    user.nickname=USER.get("wxNickName");
     s.user=user;
     var navBtns=[
         {url:'api/coupons/getCustomerCoupons',name:'优惠券'},        
@@ -20,7 +20,8 @@ angular.module('controller')
             template:'components/coupons/dialog/couponsDialog.html',                
             controller:'couponsDialogController',
             disableAnimation:true,
-            showClose:false,
+            showClose:false,      
+            overlay:false,
             resolve:{
                 dialog:[function(){                    
                     return dialog;
@@ -31,8 +32,9 @@ angular.module('controller')
             if(d.value=="success"){
                 $state.reload();
             }
+        },function(d){
         });
-    };    
+    };        
     s.navBtns=navBtns;
     s.$on('$destroy',function(a){        
         dialog.close&&dialog.close();

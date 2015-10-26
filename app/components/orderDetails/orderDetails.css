@@ -68,10 +68,15 @@
         padding: 0.5em;
         line-height: 1.7;
         background-color: #f4f4ef; }
-        #orderDetails .container .panel .body .item .key {
-          display: inline-block;
-          width: 4em;
-          color: #5a5959; }
+        #orderDetails .container .panel .body .item {
+          font-size: 0; }
+          #orderDetails .container .panel .body .item .key {
+            display: inline-block;
+            font-size: 14px;
+            width: 4.5em;
+            color: #5a5959; }
+          #orderDetails .container .panel .body .item .value {
+            font-size: 14px; }
         #orderDetails .container .panel .body .btn {
           outline: none;
           display: inline-block;

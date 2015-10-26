@@ -1,9 +1,9 @@
 'use strict';
 angular.module('controller')
-.controller('indexController',['$scope','$http','loading',function(s,$http,loading){
+.controller('indexController',['$scope','$http','loading','user',function(s,$http,loading,USER){
     var user={};
-    user.headimgurl="/images/head.jpg";
-    user.nickname='Lucky';
+    user.headimgurl=USER.get("wxHeadImage");
+    user.nickname=USER.get("wxNickName");
     s.user=user;
     var notes=[
         {sref:"order",class:'icon_order',name:'我的订单'},
@@ -13,5 +13,5 @@ angular.module('controller')
         // ,{sref:"",class:'icon_feedback',name:'意见反馈'}
     ]
     s.notes=notes;
-    loading.hide();
+    
 }]);

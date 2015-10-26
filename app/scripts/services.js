@@ -121,23 +121,21 @@ angular.module('services')
                 "signType":'MD5', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
                 "paySign": d.sign, // 支付签名
                 success: function (res) {
-                    alert(fjson(res));
+                    
                 }
-            };
-            alert(fjson(o));
+            };            
             wx.chooseWXPay(o);
         });
     }
     function payNewVer(o){
-        function onBridgeReady(){
-            alert(o)
+        var deferred = $q.defer();
+        function onBridgeReady(){  
             $http.get(baseUrl+"mvc/wxcontrol/wxpay",{
                 params:{
                     requestParam:fjson(angular.extend({"wxOpenID":user.get('wxOpenid')},o))
                 }
             }).success(function(d){
-                d=d.data;
-                alert(d);
+                d=d.data;                
                 WeixinJSBridge.invoke(
                    'getBrandWCPayRequest', {
                        "appId" : d.appid,
@@ -148,7 +146,14 @@ angular.module('services')
                        "paySign" : d.sign
                    },
                    function(res){     
-                       if(res.err_msg == "get_brand_wcpay_request：ok" ) {}     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+                       if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                            // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+                            deferred.resolve("ok");
+                       }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
+                            deferred.reject("cancel");
+                       }else if(res.err_msg == "get_brand_wcpay_request:fail"){
+                            deferred.reject("fail");
+                       }
                    }
                 ); 
             });
@@ -163,6 +168,7 @@ angular.module('services')
         }else{
            onBridgeReady();
         }
+        return deferred.promise;
     }
     return {
         pay:pay,
@@ -181,7 +187,6 @@ angular.module('services')
     d.append(dr);
     dr.addClass("rotate");
     dr.append(angular.element(document.createElement("div")));
-    console.log(d);
     function show(){
        d.addClass("active");
     }
@@ -193,6 +198,6 @@ angular.module('services')
         hide:hide
     }
 }])
-// .constant("baseUrl","/Patica2.0/");//正式
-.constant("baseUrl","");
+.constant("baseUrl","/Patica2.0/");//正式
+// .constant("baseUrl","");
 

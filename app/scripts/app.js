@@ -64,6 +64,7 @@ function ($stateProvider, $urlRouterProvider) {
         title:'评价',
         resolve:{
             data:['$stateParams','Restangular','baseUrl','$q',function($stateParams,rest,baseUrl,$q){
+                console.log($stateParams);
                 var deferred = $q.defer();
                 var task=rest.all(baseUrl+"api").one("task","repairtask");
                 var data=task.get($stateParams);
@@ -133,8 +134,13 @@ function ($stateProvider, $urlRouterProvider) {
             }]
         }
     });
-}]).run(['$rootScope','$interval','$location','user','searchParse',function($rootScope,$interval,$location,user,searchParse){    
-    user.set('wxOpenid',searchParse('usercode'));
+}]).run(['$rootScope','$interval','$location','user','searchParse','$http','baseUrl',function($rootScope,$interval,$location,user,searchParse,$http,baseUrl){    
+    searchParse('usercode')&&user.set('wxOpenid',searchParse('usercode'));
+    $http.get(baseUrl+"mvc/wxcontrol/getcustomerdata").success(function(d){
+        var data=d.data||{};
+        user.set("wxHeadImage",data.wxHeadImage||"");
+        user.set("wxNickName",data.wxNickName||"游客");
+    });
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
         if(toState.title){
             $rootScope.title=toState.title; 

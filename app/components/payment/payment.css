@@ -1,87 +1,114 @@
 #payment {
   min-height: 100vh;
-  background-color: #e5e5e0; }
-  #payment > .header {
-    background: url("/images/detail_header_bg.jpg") no-repeat 0 0/100% auto;
-    height: 50vw;
-    position: relative; }
-    #payment > .header .container {
-      margin-left: 10%;
-      width: 80%;
-      position: absolute;
-      top: 20vw; }
-      #payment > .header .container .node {
-        float: left;
-        width: 25%;
-        position: relative;
-        text-align: center; }
-        #payment > .header .container .node .point {
-          width: 100%;
-          background-color: #434343;
-          box-shadow: 0 0px 3px 0 #2d2d2d inset;
-          height: 12.5px; }
-        #payment > .header .container .node::after {
-          background-color: #434343;
-          box-shadow: 0 0px 3px 0 #2d2d2d inset;
-          content: " ";
-          height: 25px;
-          right: -25px;
-          margin: 0 auto;
-          position: absolute;
-          top: 50%;
-          width: 25px;
-          border-radius: 50%;
-          -webkit-transform: translate(-50%, -50%);
-                  transform: translate(-50%, -50%);
-          z-index: 1000; }
-        #payment > .header .container .node.active::after {
-          background-color: #f9dd33;
-          box-shadow: 0 -3px 2px 0 #8b8120 inset; }
-        #payment > .header .container .node.active .point {
-          background-color: #f9dd33; }
-        #payment > .header .container .node:first-child {
-          width: 0; }
-        #payment > .header .container .node .text {
-          color: #fff;
-          position: absolute;
-          right: -2em;
-          top: -2em;
-          -webkit-transform: translate(-50%, -50%);
-                  transform: translate(-50%, -50%);
-          white-space: nowrap; }
-    #payment > .header .tips {
-      margin: 2em -0.7em;
-      color: #b24d1a; }
+  background-color: #e8eaeb; }
   #payment .container {
-    padding: 10px; }
+    padding-top: 10px; }
     #payment .container .panel {
       border: 1px solid #c6c1b5;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
       overflow: hidden; }
       #payment .container .panel .header {
         padding: 0.5em;
         color: #fff;
-        font-size: 120%;
-        background-color: #ebc35e; }
+        background-color: #3b83d5; }
       #payment .container .panel .body {
         padding: 0.5em;
         line-height: 1.7;
-        background-color: #f4f4ef; }
+        background-color: #fff; }
         #payment .container .panel .body .item {
           font-size: 0; }
           #payment .container .panel .body .item .key {
-            display: inline-block;
             width: 4em;
             color: #5a5959;
             font-size: 14px; }
           #payment .container .panel .body .item .value {
             font-size: 14px; }
-        #payment .container .panel .body .btn {
+      #payment .container .panel .coupon {
+        position: relative;
+        margin-top: 10px;
+        background-color: #85b4e8;
+        vertical-align: middle;
+        font-size: 0;
+        box-shadow: 0 0 2px 0px #777 inset; }
+        #payment .container .panel .coupon select {
+          font-size: 14px;
+          color: #fff;
+          vertical-align: middle;
+          border-radius: 0px;
+          background-color: transparent;
+          border: none;
           outline: none;
-          display: inline-block;
-          padding: 5px;
+          -webkit-appearance: none;
+             -moz-appearance: none;
+                  appearance: none;
           width: 100%;
+          opacity: 0;
+          height: 30px; }
+        #payment .container .panel .coupon .display {
+          z-index: 0;
+          padding-left: 0.5em;
+          font-size: 14px;
+          line-height: 30px;
+          vertical-align: middle;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          color: #fff; }
+          #payment .container .panel .coupon .display .ctip {
+            float: right; }
+          #payment .container .panel .coupon .display .icon {
+            color: #fff;
+            background-color: #bb262a;
+            border-radius: 2px;
+            padding: 0 5px;
+            margin-right: 5px; }
+      #payment .container .panel .tips {
+        padding: 5px;
+        border-top: 1px solid #cfcfcf;
+        background-color: #fff; }
+        #payment .container .panel .tips .title {
+          float: left;
+          margin-right: 5px; }
+          #payment .container .panel .tips .title .icon {
+            color: #fff;
+            background-color: #bb262a;
+            border-radius: 2px;
+            padding: 0 5px; }
+        #payment .container .panel .tips .content {
+          line-height: 1.6; }
+          #payment .container .panel .tips .content .item {
+            font-size: 0; }
+            #payment .container .panel .tips .content .item .key {
+              width: 4em;
+              color: #5a5959;
+              font-size: 14px; }
+            #payment .container .panel .tips .content .item .value {
+              font-size: 14px; }
+        #payment .container .panel .tips .quote {
+          border-top: 1px solid #cfcfcf; }
+      #payment .container .panel .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 43px; }
+        #payment .container .panel .footer .pay {
+          color: #fff;
+          font-size: 14px;
+          float: left;
+          width: 60%;
+          height: 100%;
+          line-height: 43px;
+          vertical-align: bottom;
+          background-color: #484848; }
+          #payment .container .panel .footer .pay .amount {
+            font-size: 200%; }
+        #payment .container .panel .footer .btn {
+          outline: none;
+          float: left;
+          display: inline-block;
+          width: 40%;
           font-weight: normal;
           line-height: 1.42857143;
           text-align: center;
@@ -89,34 +116,8 @@
           vertical-align: middle;
           cursor: pointer;
           border: 1px solid transparent;
-          background-color: #3da8ed;
+          background-color: #f4be66;
           color: #fff;
-          border-radius: 5px;
-          margin-top: 3vw; }
-        #payment .container .panel .body .coupon {
-          position: relative;
-          border-top: 1px solid #5a5959;
-          border-bottom: 1px solid #5a5959;
-          font-size: 0;
-          display: inline-block;
-          width: 100%; }
-          #payment .container .panel .body .coupon .key {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            font-size: 14px; }
-          #payment .container .panel .body .coupon select {
-            font-size: 14px;
-            line-height: 18px;
-            vertical-align: middle;
-            display: inline-block;
-            border-radius: 0px;
-            background-color: transparent;
-            border: none;
-            width: 100%;
-            outline: none;
-            padding: 0 4em;
-            -webkit-appearance: none;
-               -moz-appearance: none;
-                    appearance: none; }
+          height: 100%;
+          font-size: 150%;
+          font-weight: 800; }

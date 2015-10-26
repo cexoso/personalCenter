@@ -1,9 +1,9 @@
 'use strict';
 angular.module('controller')
-.controller('orderController',['$scope',function(s){
+.controller('orderController',['$scope','user',function(s,USER){
     var user={};
-    user.headimgurl="/images/head.jpg";
-    user.nickname='Lucky';
+    user.headimgurl=USER.get("wxHeadImage");
+    user.nickname=USER.get("wxNickName");
     s.user=user;
     var navBtns=[
         {

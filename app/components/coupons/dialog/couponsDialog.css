@@ -1,40 +1,51 @@
-#couponsDialog .container {
-  display: table;
-  width: 100%;
-  overflow: hidden; }
-  #couponsDialog .container .btn {
-    background-color: red;
-    border: 1px solid black;
-    display: table-cell;
-    padding: 2px 8px;
-    white-space: nowrap;
-    width: 1%;
-    cursor: default;
-    color: #fff;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px; }
-  #couponsDialog .container input {
-    background-color: transparent;
-    border: 1px solid #000;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    display: table-cell;
-    outline: medium none;
-    padding: 10px;
-    width: 100%; }
-    #couponsDialog .container input::-webkit-input-placeholder {
-      /* WebKit browsers */
-      color: #999; }
-    #couponsDialog .container input:-moz-placeholder {
-      /* Mozilla Firefox 4 to 18 */
-      color: #999; }
-    #couponsDialog .container input::-moz-placeholder {
-      /* Mozilla Firefox 19+ */
-      color: #999; }
-    #couponsDialog .container input:-ms-input-placeholder {
-      /* Internet Explorer 10+ */
-      color: #999; }
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+  background-color: transparent !important; }
 
-#couponsDialog .tips {
-  margin-top: 10px;
-  color: #a94442; }
+#couponsDialog .pannel {
+  background-color: #fff;
+  border: 1px solid #bebebe; }
+  #couponsDialog .pannel .head {
+    padding: 10px;
+    background-color: #6794e7;
+    font-size: 24px;
+    color: #fff; }
+  #couponsDialog .pannel .body {
+    padding: 5px; }
+    #couponsDialog .pannel .body .container {
+      display: table;
+      width: 100%;
+      padding-bottom: 10px; }
+      #couponsDialog .pannel .body .container span {
+        display: table-cell;
+        white-space: nowrap;
+        font-size: 20px; }
+      #couponsDialog .pannel .body .container input {
+        display: table-cell;
+        border-radius: 5px;
+        font-size: 20px;
+        width: 100%; }
+    #couponsDialog .pannel .body .tips {
+      color: brown;
+      line-height: 20px;
+      font-size: 14px;
+      height: 20px; }
+  #couponsDialog .pannel .footer {
+    padding: 5px; }
+    #couponsDialog .pannel .footer .center {
+      width: 150px;
+      margin: 0 auto; }
+      #couponsDialog .pannel .footer .center .btn {
+        display: inline-block;
+        font-size: 14px;
+        width: 40%;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: #fff;
+        white-space: nowrap;
+        background-color: #6794e7; }
+        #couponsDialog .pannel .footer .center .btn:first-child {
+          float: left; }
+        #couponsDialog .pannel .footer .center .btn:last-child {
+          float: right; }

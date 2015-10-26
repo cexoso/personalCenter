@@ -36,6 +36,11 @@
           font-size: 125%; }
         #orderview .orderdisplay .body .display .ordertime {
           color: #908e8f; }
+        #orderview .orderdisplay .body .display .item {
+          color: #908e8f; }
+          #orderview .orderdisplay .body .display .item .key {
+            display: inline-block;
+            width: 3.5em; }
         #orderview .orderdisplay .body .display .quote {
           color: #908e8f; }
           #orderview .orderdisplay .body .display .quote i {

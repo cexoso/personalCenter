@@ -1,46 +1,68 @@
 @import "app/css/base";
+.ngdialog.ngdialog-theme-default .ngdialog-content{
+    background-color: transparent !important;
+}
 #couponsDialog{     
-    .container{
-        display:table;
-        width:100%;
-        overflow:hidden;
-        .btn{
-            background-color: red;
-            border: 1px solid black;
-            display: table-cell;
-            padding: 2px 8px;
-            white-space: nowrap;
-            width: 1%;
-            cursor:default;
-            color:#fff;
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-        }
-        input{
-            background-color: transparent;
-            border: 1px solid #000;  
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-            display: table-cell;
-            outline: medium none;
+    .pannel{
+        background-color: #fff;
+        border:1px solid #bebebe;
+        .head{
             padding: 10px;
-            width: 100%;
-            &::-webkit-input-placeholder { /* WebKit browsers */
-                    color: #999;
+            background-color: #6794e7;
+            font-size:24px;
+            color:#fff;
+        }
+        .body{
+            padding:5px;
+            .container{
+                display:table;
+                width:100%;
+                padding-bottom: 10px;
+
+                
+                span{
+                    display:table-cell;
+                    white-space: nowrap;
+                    font-size:20px;    
+                }
+                input{
+                    display:table-cell;
+                    border-radius: 5px;
+                    font-size:20px;
+                    width:100%;
+                }
             }
-            &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-                color:#999;
-            }
-            &::-moz-placeholder { /* Mozilla Firefox 19+ */
-                color:#999;
-            }
-            &:-ms-input-placeholder { /* Internet Explorer 10+ */
-                color: #999;
+            .tips{
+                color:brown;
+                line-height:20px;
+                font-size: 14px;
+                height: 20px;
             }
         }
-    }
-    .tips{
-        margin-top: 10px;
-        color: #a94442;
+        .footer{
+            padding:5px;
+            .center{
+                width:150px;
+                margin:0 auto;
+                .btn{
+                    display:inline-block;
+                    font-size: 14px;
+                    width:40%;
+                    text-align: center;
+                    font-size: 18px;
+                    border-radius: 5px;
+                    padding:5px 10px;
+                    color:#fff;             
+                    white-space: nowrap; 
+                    background-color: #6794e7;
+                    &:first-child{
+                        float:left;
+                    }
+                    &:last-child{
+                        float:right;
+                    }
+                }
+            }            
+        }
     }
 }

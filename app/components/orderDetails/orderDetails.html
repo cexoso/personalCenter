@@ -19,23 +19,36 @@
             <div class="header">订单信息</div>
             <div class="body">
                 <div class="item">
-                    <span class="key">订单号:</span>
+                    <span class="key">订&ensp;单&ensp;号:</span>
                     <span class="value">{{order.orderHead.orderID}}</span>
+                </div>
+
+                <div class="item">
+                    <span class="key">
+                        产&#x3000;&#x3000;品:
+                    </span>
+                    <span class="value">
+                        {{order.orderBody[0].brandName}} {{order.orderBody[0].goodsName}} {{order.orderBody[0].colorName}}
+                    </span>
                 </div>
                 <div class="item" ng-repeat="o in order.orderBody">
                     <span class="key">
-                        <span ng-if="$index==0">产&#x3000;品:</span>
+                        <span ng-if="$index==0">故&#x3000;&#x3000;障:</span>
                     </span>
                     <span class="value">
-                        {{o.brandName}} {{o.goodsName}} {{o.colorName}} {{o.itemName}}
+                        {{o.itemName}}
                     </span>
                 </div>
                 <div class="item">
-                    <span class="key">用&#x3000;户:</span>
-                    <span class="value">{{order.orderHead.name}} {{order.orderHead.phone}}</span>
+                    <span class="key">客&#x3000;&#x3000;户:</span>
+                    <span class="value">{{order.orderHead.name}}</span>
                 </div>
                 <div class="item">
-                    <span class="key">地&#x3000;址</span>
+                    <span class="key">电话号码:</span>
+                    <span class="value">{{order.orderHead.phone}}</span>
+                </div>
+                <div class="item">
+                    <span class="key">地&#x3000;&#x3000;址:</span>
                     <span class="value addr">
                         {{order.orderHead.provinceName}} {{order.orderHead.cityName}} {{order.orderHead.areaName}}
                     </span>
@@ -44,7 +57,22 @@
                     <span class="key"></span>
                     <span class="value addr">{{order.useraddr}}</span>
                 </div>
-                <button ng-if="order.orderHead.orderStatus!=6010" class="btn" ng-click="cancel()">取消订单</button>
+
+                <div class="item">
+                    <span class="key">预约时间:</span>
+                    <span class="value addr">
+                        {{order.orderHead.appointmentDate}}
+                    </span>
+                </div>
+                <div class="item" style="margin-top:5px;">
+                    <span class="key">预约时段:</span>
+                    <span class="value addr">
+                        {{order.orderHead.appointmentTimeSlot}}
+                    </span>
+                </div>
+                 
+                <button ng-if="order.orderHead.orderStatus==6001" class="btn" ng-click="cancel()">取消订单</button>
+                <button ng-if="order.orderHead.orderStatus!=6001" class="btn" ng-click="back()">返回</button>
             </div>
         </div>
     </div>

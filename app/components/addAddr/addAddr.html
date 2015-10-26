@@ -5,17 +5,17 @@
             <form name="addr">
                 <div class="input-group form-control name">
                     <span class="addon">
-                        <span class="img"></span>
+                        <span class="img name"></span>
                     </span>
                     <input type="text" name="name" ng-model="data.name" placeholder="姓名"></div>
                 <div class="input-group form-control phone">
                     <span class="addon">
-                        <span class="img"></span>
+                        <span class="img tel"></span>
                     </span>
                     <input type="number" ng-model="data.phone" placeholder="电话"></div>
                 <div class="input-group form-control provin">
                     <span class="addon">
-                        <span class="img"></span>
+                        <span class="img addr"></span>
                     </span>
                     <select require name="province" ng-model="data.province" ng-options="province.code as province.name for province in addrconf.provinces">
                         <option value="" disabled selected>省</option>

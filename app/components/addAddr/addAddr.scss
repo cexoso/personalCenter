@@ -45,7 +45,16 @@
                         width:30px;
                         height:30px;
                         display:block;
+                        
+                    }
+                    .name{
                         background:url($img+"name.png") no-repeat scroll 0 0/30px 30px;
+                    }
+                    .tel{
+                        background:url($img+"tel.jpg") no-repeat scroll 0 0/30px 30px;
+                    }
+                    .addr{
+                        background:url($img+"addr.jpg") no-repeat scroll 0 0/30px 30px;
                     }
                 }
                 select{

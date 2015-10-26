@@ -35,10 +35,11 @@ gulp.task('server', ['scss:watch'], function () {
                         if (!req.url.match(/\/api\/|\/mvc\//ig)) {
                             next();
                         } else {                            
-                            console.log('代理：' + req.url)
+                            console.log('代理：' + req.url);
                             // proxy.web(req, res, { target: 'http://192.168.0.145:8080/Patica2.0'});  
-                            proxy.web(req, res, { target: 'http://www.patica.cn:8080/Patica2.0'}); 
+                            // proxy.web(req, res, { target: 'http://www.patica.com.cn:9080/Patica2.0'}); 
                             // ?usercode=ohQRxsxXwBlQf5qdTvgecbYYjWGE
+                            proxy.web(req, res, { target: 'http://www.patica.cn:8080/Patica2.0'}); 
                             // proxy.web(req, res, { target: 'http://localhost:8080/Patica2.0'});                    
                         }
                     }
@@ -143,6 +144,7 @@ function dist() {
 
 function distlib() {
     var filter = gulpFilter('*.js');
+    console.log(bowerFiles());
     return gulp.src(bowerFiles())
         .pipe(filter)
         .pipe(concat('lib.js'), {
