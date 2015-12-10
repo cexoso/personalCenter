@@ -24,11 +24,18 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     httpProxy = require('http-proxy');
     var proxy = httpProxy.createProxyServer({});
+    proxy.on('error', function (err, req, res) {
+        console.log(err);
+        res.writeHead(500, {
+            'Content-Type': 'text/plain'
+        });
+        res.end(err+"");
+    });
 gulp.task('server', ['scss:watch'], function () {
     connect.server({
         root: ['app','bower_components'],
         livereload: true,
-        port: 80,
+        port: 9000,
         middleware: function (connect, opt) {
                 return [
                     function (req, res, next) {
@@ -39,6 +46,7 @@ gulp.task('server', ['scss:watch'], function () {
                             // proxy.web(req, res, { target: 'http://192.168.0.145:8080/Patica2.0'});  
                             // proxy.web(req, res, { target: 'http://www.patica.com.cn:9080/Patica2.0'}); 
                             // ?usercode=ohQRxsxXwBlQf5qdTvgecbYYjWGE
+                            // ?usercode=ohQRxs4EMc4dBVahHIY7HvvQ2XNM
                             proxy.web(req, res, { target: 'http://www.patica.cn:8080/Patica2.0'}); 
                             // proxy.web(req, res, { target: 'http://localhost:8080/Patica2.0'});                    
                         }
@@ -155,17 +163,24 @@ function distlib() {
         .pipe(rev())
         .pipe(gulp.dest('./dist/scripts'));
 };
-
+function distFonts(){
+    return gulp.src('app/fonts/*')
+        // .pipe(image())
+        .pipe(gulp.dest('./dist/fonts'));
+}
 function distimg() {
+    gulp.src('app/favicon.ico')
+    .pipe(gulp.dest('dist'))
     return gulp.src('app/images/*')
         // .pipe(image())
         .pipe(gulp.dest('./dist/images'));
 };
-gulp.task('dist_html', ['makeCache', 'distlib', 'distLogic', 'dist_css','distimg'], dist_html);
+gulp.task('dist_html', ['makeCache', 'distlib', 'distLogic', 'dist_css','distimg','distFonts'], dist_html);
 gulp.task('makeCache', makeCache);
 gulp.task('distLogic', distLogic);
 gulp.task('jsHint', jsHint);
 gulp.task('distlib', distlib);
+gulp.task('distFonts', distFonts);
 gulp.task('distimg', distimg);
 gulp.task('dist_css', dist_css);
 gulp.task('clear', clear);

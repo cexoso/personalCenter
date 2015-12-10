@@ -2,6 +2,7 @@
 angular.module('controller')
 .controller('addAddrController',['$scope','user','$state','Restangular','baseUrl',function(s,user,$state,rest,baseUrl){
     s.addrconf={};
+    s.btn="提 交";
     s.data={};
     var res=rest.all(baseUrl+"api").one("config",'getAddress');
     res.get({parentCode:'root'}).then(function(d){

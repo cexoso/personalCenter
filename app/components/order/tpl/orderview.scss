@@ -1,17 +1,16 @@
 @import "app/css/base";
 #orderview{
-    padding: 10px;
-    background-color: #fafaee;
+    min-height: 100vh;
+    background-color: #f0efed;
     .orderdisplay{
-        border:1px solid #d9d9d1;
-        border-radius: 5px;
+        border:1px solid #d9d9d1;        
         overflow: hidden;    
         margin: 15px 0;
         .header{
             padding: 5px 12px;
-            color:#fff;
+            color:#818181;
             font-size:13px;
-            background-color: #51a0eb;        
+            background-color: #fff;
             .status{
                 float:right;
             }
@@ -20,9 +19,8 @@
             background-color: white;
             padding: 7px;      
             font-size:12px;
-            
+            border-top: 1px solid #e3e3e3;
             .icon{
-                
                 vertical-align: middle;
                 height: 17vw;                        
                 width: 15vw;
@@ -74,10 +72,11 @@
                     text-align: center;
                     white-space: nowrap;
                     vertical-align: middle;
-                    cursor: pointer;                
-                    border: 1px solid #d2d2d2;
-                    background-color: #f5bb40;
-                    color:#fff;
+                    cursor: pointer;           
+                    font-weight: 700;     
+                    border: 1px solid #bf2422;
+                    background-color: transparent;
+                    color:#bf2422;
                     border-radius: 5px;
                     margin-top: 3vw;
                 }

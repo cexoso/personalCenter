@@ -1,14 +1,36 @@
 <section id="index">
     <header>
         <div class="header_content">
-            <img ng-src="{{user.headimgurl}}" class="headimgurl">
-            <span class="nickname">{{user.nickname}}</span>    
+            <img class="bg" src="images/headbg.jpg">
+            <div class="user">
+                <div class="border">
+                    <img ng-src="{{user.wxHeadImage}}" class="headimgurl"></div>
+                <div class="nickname">{{user.wxNickName}}</div>
+            </div>
         </div>
     </header>
     <article>
+        <div class="shortcut clearfix">
+            <div class="coupons" ui-sref="coupons">
+                <div class="icon-coupons"></div>
+                <div class="display">
+                    我的优惠券
+                    <div class="q">0</div>
+                </div>
+            </div>
+
+            <div class="order" ui-sref="order">
+                <div class="icon-shopping_car"></div>
+                <div class="display">
+                    我的订单
+                    <div class="q">0</div>
+                </div>
+            </div>
+        </div>
         <div class="note" ui-sref="{{note.sref}}" ng-repeat="note in notes">
-            <span class="icon" ng-class="note.class"></span><a style="vertical-align: middle;">{{note.name}}</a>
-            <span class="icon icon_arrow"></span>         
+            <span class="icon" ng-class="note.class"></span>
+            <a style="vertical-align: middle;">{{note.name}}</a>
+            <span class="icon-arrow"></span>
         </div>
     </article>
 </section>

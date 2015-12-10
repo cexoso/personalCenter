@@ -1,21 +1,27 @@
 @import "app/css/base";
 #evaluate{
-    padding:10px;
+    padding:10px 0;
+    min-height: 100vh;
+    background-color: #f0efed;
     .panel{
-        border:1px solid #c6c1b5;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        overflow: hidden;
-        .header{
-            padding: 0.5em;
-            color:#fff;
-            font-size:120%;
-            background-color: #ebc35e;
+        .header{            
+            color:#7a7a7a;
+            font-size:28px;
+            padding: 10px;
+            background-color: #fff;            
+            border-bottom:1px solid #d8d8d8;
+            .icon-evaluate{
+                color:#3a89c2;
+                font-size:32px;
+                vertical-align: middle;
+                margin-right:5px;
+                float:left;
+            }
         }
         .body{
             padding: 0.5em;
-            line-height: 1.7;
-            background-color: #f4f4ef;
+            font-weight: 700;            
+            background-color: #fff;
             .text{
                 height:40vw;
                 width:100%;
@@ -26,8 +32,9 @@
             }
             .btn{
                 outline: none;
-                display: inline-block;
-                padding: 5px;
+                display: inline-block;                
+                height:45px;
+                font-size:18px;
                 width:100%;
                 font-weight: normal;
                 line-height: 1.42857143;
@@ -41,37 +48,29 @@
                 border-radius: 5px;
                 margin-top: 3vw;
             }
+            .taglist{
+                margin:12px 0;
+            }
             .tag{
-                margin:3px;
                 white-space: nowrap;
-                padding:1.5px 5px;
+                padding:5px;
                 display:inline-block;                
                 border-radius: 2px;
                 transition: background-color .5s;
                 cursor:default;
+                float:left;
+                text-align: center;
+                width:22%;
+                margin:5px;
+                margin:1vw;
+                background-color: #c3c3c1;
                 &.active{
                     color:#fff;
                 }
-                &.active:nth-child(1){
-                    background-color: #FF6666;
-                }
-                &.active:nth-child(2){ 
-                    background-color: #FF9900;
-                }
-                &.active:nth-child(3){
-                    background-color: #006699;
-                }
-                &.active:nth-child(4){
-                    background-color: #339933;
-                }
-                &.active:nth-child(5){
-                    background-color: #33CC99;
-                }
-                &.active:nth-child(6){
-                    background-color: #0099CC;
-                }
+                &.active{
+                    background-color: #7a3f91;
+                }                
             }
-
         }
     }
 }

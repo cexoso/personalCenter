@@ -2,72 +2,97 @@
 #order{
     min-height: 100vh;
     background-color: #fafaee;
+    font-size: 0;
 }
 #order>header{
-    background: url($img+'orderbg.jpg') center top/100% auto no-repeat;
-    height: 36.5vw;
-    position: relative;
+    .header_content{
+       position:relative;
+       .bg{
+            width:100%;
+            height:auto;
+       }
+       .user{
+            position:absolute;
+            top: 60%;
+            left:50%;
+            transform:translate(-50%,-50%);
+       }
+       .nickname{
+            color: #e6efff;
+            font-size: 6vw;
+            vertical-align: middle;
+            text-align: center;
+        }
+        .border{
+            border-radius: 50%;
+            border:3px solid #8cdbfc;
+            overflow: hidden;
+            .headimgurl{
+                border-radius: 50%;
+                width: 75px;
+                height: auto;            
+                vertical-align: middle;
+            }
+        }
+    }
 }
-.header_content{
-    width:100%;
-    position: absolute;
-    bottom: 0;
-    padding: 10px;
-    padding: 1.9vw;
-    background-color: rgba(0,0,0,0.3);
-}
-#order .headimgurl{
-    border-radius: 50%;
-    width: 15%;
-    height: auto;
-    border: 3px solid #5a6b73;
-    vertical-align: middle;
-}
-.nickname{
-    color: white;
-    font-size: 6vw;
-    line-height: 14vw;
-    padding: 8px;
-    padding: 3vw;
-}
-// #order>article{
-//     padding: 5px;
-//     padding: 0.5vw;    
-// }
-#order .nav{
-    padding: 5px 0;
-    background-color: #f2b411;
-}
-#order .nav_group{
-    margin: 0 auto;
-    width: 95%;
-    display: table;
-}
-#order .nav_group .btn{
-    width: 1%;    
-    outline: none;
-    padding: 6px 12px;
-    font-weight: normal;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    background-image: none;
-    border: 1px solid transparent;
-    background-color:#c28a00;
-    color:white;
-    display: table-cell;
-}
-#order .nav_group .btn:hover,#order .nav_group .btn:active,#order .nav_group .btn.active{
-    background-color:#fff;    
-    color: #f2b411;
-}
-#order .nav_group .btn:first-child{
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-}
-#order .nav_group .btn:last-child{
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
+#order{
+    .nav{
+        padding: 5px 0;
+        background-color: #fff;
+        border-top:1px solid #d9d9d9;
+        border-bottom:1px solid #d9d9d9;
+        .nav_group{
+            margin: 0 auto;
+            width: 95%;
+            display: table;
+            .btn{
+                
+                font-size:20px;
+                font-weight: 800;
+                width: 1%;    
+                outline: none;
+                display: inline-block;
+                padding: 6px 12px;
+                font-weight: normal;
+                line-height: 1.42857143;
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: middle;
+                cursor: pointer;
+                background-image: none;
+                border: 1px solid transparent;
+                background-color: #fff;
+                color:#5a5a5a;
+                display: table-cell;
+                &.active{
+                    background-color:#fff;    
+                    color: #b10200;
+                    &>.f{
+                        display:inline-block;
+                    }
+                    &>.f::before{
+                        content:" ";
+                        position:relative;
+                        top:40px;
+                        left:0;
+                        width:100%;
+                        height:1px;
+                        display:block;
+                        background-color: red;
+                    }
+                }
+                &:not(:last-child)::after{
+                      content: "";
+                      height: 1em;
+                      position: relative;
+                      top: 0.2em;
+                      left: 1.5em;
+                      background-color: #d8d8d8;
+                      display: inline-block;
+                      width: 1px;
+                }             
+            }
+        }
+    }
 }

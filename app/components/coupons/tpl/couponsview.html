@@ -1,11 +1,17 @@
 <div id="couponsview">
     <div ng-repeat="coupon in coupons">
         <div class="coupon">
+            <img class="bg" src="images/coupons.png">
             <div class="panel clearfix" ng-class="'green'">
-                <span class="icon"></span>
-                <span class="font"> <i>{{coupon.cardPrice}}</i>
-                    元手机维修优惠券
-                </span>
+                <div class="font">
+                    <div class="left">
+                        <span class="symbol">￥</span> 
+                        <i>{{coupon.cardPrice}}</i>    
+                    </div>
+                    <div class="right">
+                        手机维修
+                        <br>抵用券</div>    
+                    </div>                    
             </div>
             <div class="footer clearfix">
                 <span class="confine">使用限制:消费满{{coupon.useLimitPrice}}使用</span>

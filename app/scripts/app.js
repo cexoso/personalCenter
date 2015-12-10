@@ -1,8 +1,7 @@
 'use strict';
 angular.module('paticaApp', [  
   'ui.router',
-  'restangular',
-  'ngDialog',
+  'restangular',  
   'controller',
   'directive',
   'services',
@@ -11,9 +10,10 @@ angular.module('paticaApp', [
 '$urlRouterProvider',
 function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/index');
+    
     $stateProvider.state('index',{
         url: '/index',
-        templateUrl: 'components/index/index.html',    
+        templateUrl: 'components/index/index.html',
         controller:'indexController',
         title:'个人中心'
     }).state('order',{
@@ -97,7 +97,7 @@ function ($stateProvider, $urlRouterProvider) {
         title:'新增地址'
     }).state('editAddr',{
         url: '/editAddr/:id',
-        templateUrl: 'components/editAddr/editAddr.html',    
+        templateUrl: 'components/addAddr/addAddr.html',
         controller:'editAddrController',
         title:'修改地址',
         resolve:{
@@ -134,11 +134,12 @@ function ($stateProvider, $urlRouterProvider) {
             }]
         }
     });
-}]).run(['$rootScope','$interval','$location','user','searchParse','$http','baseUrl',function($rootScope,$interval,$location,user,searchParse,$http,baseUrl){    
+}]).run(['$rootScope','$interval','$location','user','searchParse','$http','baseUrl','$timeout',function($rootScope,$interval,$location,user,searchParse,$http,baseUrl,$timeout){    
     searchParse('usercode')&&user.set('wxOpenid',searchParse('usercode'));
+   $http.get(baseUrl+"mvc/wxcontrol/getcustomerdata1");
     $http.get(baseUrl+"mvc/wxcontrol/getcustomerdata").success(function(d){
         var data=d.data||{};
-        user.set("wxHeadImage",data.wxHeadImage||"");
+        user.set("wxHeadImage",data.wxHeadImage||"images/head.jpg");        
         user.set("wxNickName",data.wxNickName||"游客");
     });
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){

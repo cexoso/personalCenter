@@ -3,7 +3,7 @@
   min-height: 100vh;
   background: url("/images/addrbg.jpg") left top/auto 100%;
   background-repeat: repeat-x;
-  padding: 10px; }
+  padding: 10px 0; }
   #myaddr .addrnote {
     border: 1px solid #e9e2d5;
     padding: 10px;
@@ -50,6 +50,7 @@
     outline: none;
     display: inline-block;
     padding: 6px 12px;
+    height: 45px;
     font-weight: normal;
     line-height: 1.42857143;
     text-align: center;
@@ -66,5 +67,5 @@
     right: 0;
     width: 90%;
     margin: 0 auto;
-    background-color: #f0a836;
+    background-color: #3781d8;
     font-size: 120%; }

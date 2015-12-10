@@ -2,7 +2,6 @@
 #cusvice{
     min-height: 100vh;
     background:rgba(0, 0, 0, 0) url($img+"cvbg.png") no-repeat scroll left bottom / 100% auto;
-    padding:10vh 0;
     .call{
         font-size:5.5vw;
         width: 95%;
@@ -16,7 +15,7 @@
             .icon{
                 width:27vw;
                 height:27vw;
-                background:rgba(240, 184, 75, 1) url($img+"cvp.png") no-repeat scroll center center / 18vw auto;
+                background:#f0cf4a url($img+"cvp.png") no-repeat scroll center center / 18vw auto;
                 float:left;
                 border-radius: 50%;
                 border:3px solid #fff;
@@ -39,7 +38,7 @@
             }
         }
         .btn{
-            background-color: #646496;
+            background-color: #3781d8;
             width:100%;
             display: block;
             text-align: center;

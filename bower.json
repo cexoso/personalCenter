@@ -4,7 +4,6 @@
   "dependencies": {
     "angular": "^1.4.3",
     "angular-ui-router": "angular-ui/ui-router#~0.2.15",
-    "ngDialog": "~0.5.1",
     "restangular": "~1.5.1"
   },
   "homepage": "https://github.com/cexoso/personalCenter",

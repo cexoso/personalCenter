@@ -1,82 +1,75 @@
 @import "app/css/base";
 #addAddr{
-    padding: 10px;
-    .valid{
-        background-color:#f54747;
-    }
+    padding: 10px 0;
+    min-height: 100vh;
+    background-color: #f0efed;
+    font-size:18px;
     .panel{
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border:1px solid #c1c1b9;
-        overflow: hidden;
         .header{
-            background-color: #eac167;
-            padding:0.5em 0;
-            text-align: center;
-            color:#FFF;
+            background-color: #fff;
+            padding:0.5em;
+            text-align: left;
+            color:#767676;
+            font-weight: 800;
+            border-top:1px solid #d9d7d8;
         }
         .body{
-            padding: 10px;
-            .form-control{
-                margin:5px 0;
-                &:first-child{
-                    margin-top:0;
-                }
-                &:last-child{
-                    margin-bottom:0;
-                }
-            }
+            width:100%;
+            background-color: #fff;
+            padding-bottom:30px;
             .input-group{
+                &.provin{
+                    border-bottom:1px solid #d9d7d8;            
+                }
                 display:table;
                 width:100%;
-                border:1px solid #7e807b;
+                border-top:1px solid #d9d7d8;
                 position: relative;
                 border-collapse: separate;
+                .addr{
+                    border-top:1px solid #d9d7d8;
+                }
                 .addon{
+                    background-color: #fff;
                     display:table-cell;
                     width:1%;              
                     position: relative;
                     white-space: nowrap;      
                     vertical-align: middle;
-                    background-color: #eee;
                     text-align: center;
                     font-size:0;
-                    .img{
-                        width:30px;
-                        height:30px;
-                        display:block;
-                        
-                    }
-                    .name{
-                        background:url($img+"name.png") no-repeat scroll 0 0/30px 30px;
-                    }
-                    .tel{
-                        background:url($img+"tel.jpg") no-repeat scroll 0 0/30px 30px;
-                    }
-                    .addr{
-                        background:url($img+"addr.jpg") no-repeat scroll 0 0/30px 30px;
+                    border-right: 1px solid #d9d7d8;
+                    span{
+                        font-size:30px;
+                        padding:10px;
+                        color:#767676;
                     }
                 }
                 select{
-                    height:30px;
+                    font-size:14px;
+                    background-color: #fff;
+                    height:50px;
                     width:33.33%;
                     float:left;
                     border:none;
-                    outline:none;
-                    display:tabel-cell;
+                    border-radius: none;
+                    outline:none;           
+                    color:#767676;         
                     appearance:none;
+                    &:not(:last-child){
+                        border-right:1px solid #d9d7d8;
+                    }
                 }
-
+               
                 input{
-                    border-bottom-left-radius: 0;
-                    border-top-left-radius: 0;
-                    display:tabel-cell;
-                    height:30px;
+                    font-size:14px;
+                    height:50px;
                     width:100%;
                     position: relative;
                     appearance:none;
                     border:none;
                     z-index: 2;
+                    padding-left: 0.5em;
                 }
                 input[type=number] { 
                     -moz-appearance:textfield;
@@ -88,9 +81,11 @@
             }
             .btn{
                 outline: none;
-                display: inline-block;
+                display:block;
                 padding: 3px 12px;
-                width: 100%;
+                width: 90%;
+                height:45px;
+                font-size:24px;
                 font-weight: normal;
                 line-height: 1.42857143;
                 text-align: center;
@@ -98,10 +93,10 @@
                 vertical-align: middle;
                 cursor: pointer;                
                 border: 1px solid transparent;
-                background-color: #fac045;
+                background-color: #3781d8;
                 color:#fff;
-                border-radius: 3px;
-                margin-top: 3vw;
+                font-weight: 900;
+                margin: 30px auto 0;
             }
         }
 

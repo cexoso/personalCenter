@@ -1,42 +1,32 @@
 'use strict';
 angular.module('controller')
-.controller('couponsController',['$scope','ngDialog','$http','$state','user',function(s,ngDialog,$http,$state,USER){
-    var user={};    
-    user.headimgurl=USER.get("wxHeadImage");
-    user.nickname=USER.get("wxNickName");
-    s.user=user;
+.controller('couponsController',['$scope','$http','$state','user','baseUrl','loading','$q',function(s,$http,$state,user,baseUrl,loading,$q){    
     var navBtns=[
-        {url:'api/coupons/getCustomerCoupons',name:'优惠券'},        
+        {url:'api/coupons/getCustomerCoupons',name:'未使用'},        
         {url:'api/coupons/getUsedCoupons',name:'已使用'},
         {url:'api/coupons/getExpireCoupons',name:'已过期'}
     ]
     s.navClickHandle=function(nav){
         s.active=nav;
     }
+    console.log($q)
     s.active=navBtns[0];
     var dialog={};
     s.exchange=function(){
-        angular.extend(dialog,ngDialog.open({
-            template:'components/coupons/dialog/couponsDialog.html',                
-            controller:'couponsDialogController',
-            disableAnimation:true,
-            showClose:false,      
-            overlay:false,
-            resolve:{
-                dialog:[function(){                    
-                    return dialog;
-                }]
-            }
-        }));        
-        dialog.closePromise.then(function(d){            
-            if(d.value=="success"){
-                $state.reload();
-            }
-        },function(d){
-        });
-    };        
-    s.navBtns=navBtns;
-    s.$on('$destroy',function(a){        
-        dialog.close&&dialog.close();
-    })
+        if(!s.cardCode){
+            alert("请输入兑换码");
+            return;
+        }
+        loading.show();
+        $http.post(baseUrl+'api/coupons/addCustomerCard',{
+            cardCode:s.cardCode,
+            wxOpenID:user.get('wxOpenid')
+        }).success(function(d){            
+            alert(d.msg);
+            $state.reload();
+        }).finally(function(d){            
+            loading.hide();
+        })
+    };    
+    s.navBtns=navBtns;    
 }]);

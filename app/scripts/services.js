@@ -1,3 +1,41 @@
+angular.module('paticaApp').config(['$httpProvider',function ($httpProvider) {
+   $httpProvider.interceptors.push('interceptor');
+}]);
+angular.module('services').service('interceptor', ['$q',function ($q) {    
+    var configs=[];
+    var active=false;
+    function push(config){        
+        if(!active){
+            active=true;
+            console.log("begin");
+        }
+        configs.push(config);
+    }
+    function pull(config){
+        configs.splice(configs.indexOf(config),1);
+        if(configs.length==0){
+            console.log("done");
+        }
+    }
+    var interceptor = {
+      'request': function (config) {        
+        push(config);
+        return config;
+      },
+      'response': function (response) {
+        console.log("res")
+        pull(response.config);
+        return response;
+      },
+      'responseError':function(rejection){
+        console.log("rej");
+        pull(rejection.config);
+        return rejection;
+      }
+    };
+    return interceptor;
+  }
+]);
 angular.module('services')
 .service('user',['$filter','searchParse',function(filter,searchParse){
     var obj={};
@@ -198,6 +236,6 @@ angular.module('services')
         hide:hide
     }
 }])
-.constant("baseUrl","/Patica2.0/");//正式
-// .constant("baseUrl","");
+// .constant("baseUrl","/Patica2.0/");//正式
+.constant("baseUrl","");
 

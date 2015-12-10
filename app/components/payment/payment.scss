@@ -1,45 +1,60 @@
 @import "app/css/base";
-$item:5;
-$point-size:25px;
-$activeColor:#f9dd33;
-$defaultColor:#434343;
 #payment{
     min-height: 100vh;
-    background-color: #e8eaeb;    
+    background-color: #f0efed;    
+    padding: 10px 0 59px 0;
     .container{
-        padding-top: 10px;
         .panel{
-            border:1px solid #c6c1b5;
+            border-top:1px solid #c6c1b5;
             overflow: hidden;
             .header{
-                padding: 0.5em;
-                color:#fff;
-                background-color: #3b83d5;                
+                color:#696969;
+                background-color: #fff;   
+                height:41.2px;
+                line-height: 41.2px;
+                font-size: 19.2px;
+                padding-left: 0.5em;
+                border-top: 1px solid #dedede;
+                border-bottom: 1px solid #dedede;
+                margin-top:-1px;
+                position: relative;
+                z-index: 1;
             }
             .body{
-                // #272727
-                padding: 0.5em;
-                line-height: 1.7;
+                padding-left: 2em;
                 background-color: #fff;
+                font-size: 19.2px;
+                border-bottom:1px solid #dedede;
+                .wrap{
+                    border-top: 1px solid #dedede;
+                    border-bottom: 1px solid #dedede;
+                    margin-top:-1px;
+                    padding:10px 0;
+                }
                 .item{
-                    font-size: 0;
+                    float:left;
+                    font-size: 0;                            
                     .key{                        
-                        width:4em;
-                        color:#5a5959;
-                        font-size:14px;
+                        width:1.5em;
+                        color:#696969;
+                        font-size:16.5px;
+                        display:inline-block;
                     }
                     .value{
-                        font-size:14px;   
+                        font-size:16.5px;
+                        display:inline-block;   
+                        color:#696969;
                     }
                 }
             }
             .coupon{
                 position:relative;
                 margin-top:10px;
-                background-color: #85b4e8;
+                background-color: #fff;
+                border-top:1px solid #c6c1b5;
+                border-bottom:1px solid #c6c1b5;
                 vertical-align: middle;
                 font-size:0;                
-                box-shadow: 0 0 2px 0px #777 inset;
                 select{
                     font-size:14px;
                     color:#fff;            
@@ -51,36 +66,46 @@ $defaultColor:#434343;
                     appearance:none;
                     width:100%;
                     opacity: 0;
-                    height: 30px;
+                    height: 47px;
                 }
                 .display{
                     z-index:0;
-                    padding-left:0.5em;
-                    font-size: 14px;
-                    line-height: 30px;
+                    font-size:16.5px;
+                    line-height: 47px;
                     vertical-align: middle;
                     position:absolute;
                     top: 0;
                     left: 0;
                     right: 0;
                     bottom: 0;    
-                    color:#fff;     
+                    color:#783d8f;
                     .ctip{
                         float: right;
+                        color:#696969;
                     }
-                    .icon{
-                        color:#fff;
-                        background-color: #bb262a;
-                        border-radius: 2px;
-                        padding:0 5px;
-                        margin-right:5px;
+                    .title{
+                        color:#696969;
                     }
-
+                    .icon-arrow{
+                        color:#696969;
+                        display: inline-block;
+                        float: right;
+                        line-height: 47px;
+                        transform: rotate(90deg);
+                        margin:0 10px;
+                    }
+                    .icon-coupons2{
+                        color:#ab0303;
+                        background-color: #fff;
+                        margin-left:5px;
+                        margin-top:-3px;
+                        display:inline-block;
+                        font-size:27px;
+                        vertical-align: middle;
+                    }
                 }
             }
             .tips{
-                padding: 5px;
-                border-top:1px solid #cfcfcf;
                 background-color: #fff;
                 .title{
                     float:left;
@@ -93,18 +118,32 @@ $defaultColor:#434343;
                     }
                 }
                 .content{                    
-                    line-height: 1.6;
+                    line-height: 1.6;  
+                    border-bottom: 1px solid #dedede;                  
+                    .wrap{
+                        border-top: 1px solid #dedede;
+                        border-bottom: 1px solid #dedede;
+                        margin-top:-1px;
+                        background-color: #fff;
+                        margin-left:2.5em;
+                        padding:10px 0;
+                        &:last-child{
+                            border-bottom:none;
+                        }
+                    }
                     .item{
-                    font-size: 0;
-                    .key{                        
-                        width:4em;
-                        color:#5a5959;
-                        font-size:14px;
+                        float:left;
+                        
+                        .key{                        
+                            width:4em;
+                            color:#696969;
+                            font-size:16.5px;
+                        }
+                        .value{
+                            color:#696969;
+                            font-size:16.5px;
+                        }
                     }
-                    .value{
-                        font-size:14px;   
-                    }
-                }
                 }
                 .quote{
                     border-top: 1px solid #cfcfcf;
@@ -115,14 +154,14 @@ $defaultColor:#434343;
                 bottom: 0;
                 left:0;
                 right:0;
-                height:43px;
+                height:59px;
+                line-height: 59px;
                 .pay{
                     color:#fff;
                     font-size:14px;
                     float:left;
                     width:60%;
                     height: 100%;
-                    line-height: 43px;
                     vertical-align: bottom;
                     background-color: #484848;
                     .amount{
@@ -141,7 +180,7 @@ $defaultColor:#434343;
                     vertical-align: middle;
                     cursor: pointer;                
                     border: 1px solid transparent;
-                    background-color: #f4be66;
+                    background-color: #7a3f91;
                     color:#fff;
                     height: 100%;
                     font-size:150%;

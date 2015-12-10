@@ -21,7 +21,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-rev": "^6.0.1",
     "gulp-rimraf": "^0.1.1",
-    "gulp-sass": "^2.0.4",
+    "gulp-sass": "^2.1.0",
     "gulp-sort": "^1.1.1",
     "gulp-uglify": "^1.4.1",
     "main-bower-files": "^2.9.0",

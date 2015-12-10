@@ -35,61 +35,78 @@
                   transform: translate(-50%, -50%);
           z-index: 1000; }
         #orderDetails > .header .container .node.active::after {
-          background-color: #f9dd33;
-          box-shadow: 0 -3px 2px 0 #8b8120 inset; }
+          background-color: #f9dd33; }
         #orderDetails > .header .container .node.active .point {
           background-color: #f9dd33; }
         #orderDetails > .header .container .node:first-child {
           width: 0; }
         #orderDetails > .header .container .node .text {
-          color: #fff;
+          color: #c6bfb9;
           position: absolute;
-          right: -2em;
+          right: -3em;
           top: -2em;
+          font-weight: 700;
           -webkit-transform: translate(-50%, -50%);
                   transform: translate(-50%, -50%);
           white-space: nowrap; }
     #orderDetails > .header .tips {
       margin: 2em -0.7em;
-      color: #b24d1a; }
+      color: #a9a9b5;
+      font-weight: 700; }
   #orderDetails .container {
-    padding: 10px; }
-    #orderDetails .container .panel {
-      border: 1px solid #c6c1b5;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      overflow: hidden; }
-      #orderDetails .container .panel .header {
-        padding: 0.5em;
-        color: #fff;
-        font-size: 120%;
-        background-color: #ebc35e; }
-      #orderDetails .container .panel .body {
-        padding: 0.5em;
-        line-height: 1.7;
-        background-color: #f4f4ef; }
-        #orderDetails .container .panel .body .item {
-          font-size: 0; }
-          #orderDetails .container .panel .body .item .key {
-            display: inline-block;
-            font-size: 14px;
-            width: 4.5em;
-            color: #5a5959; }
-          #orderDetails .container .panel .body .item .value {
-            font-size: 14px; }
-        #orderDetails .container .panel .body .btn {
-          outline: none;
-          display: inline-block;
-          padding: 5px;
-          width: 100%;
-          font-weight: normal;
-          line-height: 1.42857143;
-          text-align: center;
-          white-space: nowrap;
+    padding: 5px 0; }
+    #orderDetails .container .panel .header {
+      padding: 9px 0.3em;
+      color: #686868;
+      border: 1px solid #d8d8d8;
+      background-color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      vertical-align: middle; }
+      #orderDetails .container .panel .header .icon-order {
+        color: #3a89c2;
+        font-size: 25px;
+        float: left;
+        margin-right: 5px; }
+    #orderDetails .container .panel .body {
+      padding-left: 53px;
+      line-height: 1.7;
+      background-color: #fff; }
+      #orderDetails .container .panel .body .wrap {
+        padding: 6px 0;
+        border-bottom: 1px solid #d8d8d8; }
+        #orderDetails .container .panel .body .wrap:last-child {
+          border-bottom: none; }
+      #orderDetails .container .panel .body .item {
+        float: left;
+        font-size: 0; }
+        #orderDetails .container .panel .body .item .key {
+          display: table-cell;
+          font-size: 16px;
+          width: 1.5em;
           vertical-align: middle;
-          cursor: pointer;
-          border: 1px solid transparent;
-          background-color: #3da8ed;
-          color: #fff;
-          border-radius: 5px;
-          margin-top: 3vw; }
+          color: #5a5959; }
+        #orderDetails .container .panel .body .item .value {
+          display: table-cell;
+          font-size: 16px;
+          vertical-align: middle; }
+    #orderDetails .container .panel .footer {
+      background-color: #fff;
+      border-top: 1px solid  #d8d8d8;
+      padding: 10px; }
+      #orderDetails .container .panel .footer .btn {
+        outline: none;
+        display: inline-block;
+        width: 100%;
+        height: 30px;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+        background-color: #3da8ed;
+        color: #fff;
+        border-radius: 5px; }

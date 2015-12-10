@@ -1,14 +1,15 @@
 <section id="coupons">
     <header>
-        <div class="header_content">
-            <img ng-src="{{user.headimgurl}}" class="headimgurl">
-            <span class="nickname">{{user.nickname}}</span>
-            <button class="btn" ng-click="exchange()">兑换优惠券</button>
+        <div class="header_content clearfix">
+            <input type="text" ng-model="cardCode" placeholder="请输入兑换码">
+            <button class="btn" ng-click="exchange()">激活</button>
         </div>
     </header>
     <div class="nav">
         <div class="nav_group">
-            <a class='btn' ng-class="{active:nav==active}" ng-click="navClickHandle(nav)" ng-repeat="nav in navBtns">{{nav.name}}</a>
+            <a class='btn' ng-class="{active:nav==active}" ng-click="navClickHandle(nav)" ng-repeat="nav in navBtns">
+                <span class="f">{{nav.name}}</span>
+            </a>
         </div>
     </div>
     <article>

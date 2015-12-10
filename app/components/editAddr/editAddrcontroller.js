@@ -4,6 +4,7 @@ angular.module('controller')
     var res=rest.all(baseUrl+"api").one("config",'getAddress');
     res.get({parentCode:'root'});
     s.addrconf={};
+    s.btn="修 改";
     s.data={};
     res.get({parentCode:'root'}).then(function(d){
         s.addrconf.provinces=d.data;
@@ -17,7 +18,7 @@ angular.module('controller')
             }
             res.get({parentCode:n}).then(function(d){
                 s.addrconf.citys=d.data;
-                s.data.city=s.addrconf.citys[0].code;
+                // s.data.city=s.addrconf.citys[0].code;
             });
         });
         s.$watch('data.city',function(n){
@@ -26,7 +27,7 @@ angular.module('controller')
             }
             res.get({parentCode:n}).then(function(d){
                 s.addrconf.areas=d.data;
-                s.data.area=s.addrconf.areas[0].code;
+                // s.data.area=s.addrconf.areas[0].code;
             });
         });
     }

@@ -1,7 +1,6 @@
 #cusvice {
   min-height: 100vh;
-  background: transparent url("/images/cvbg.png") no-repeat scroll left bottom/100% auto;
-  padding: 10vh 0; }
+  background: transparent url("/images/cvbg.png") no-repeat scroll left bottom/100% auto; }
   #cusvice .call {
     font-size: 5.5vw;
     width: 95%;
@@ -14,7 +13,7 @@
       #cusvice .call .up .icon {
         width: 27vw;
         height: 27vw;
-        background: #f0b84b url("/images/cvp.png") no-repeat scroll center center/18vw auto;
+        background: #f0cf4a url("/images/cvp.png") no-repeat scroll center center/18vw auto;
         float: left;
         border-radius: 50%;
         border: 3px solid #fff; }
@@ -31,7 +30,7 @@
         #cusvice .call .up .text .time {
           font-size: 4.4vw; }
     #cusvice .call .btn {
-      background-color: #646496;
+      background-color: #3781d8;
       width: 100%;
       display: block;
       text-align: center;

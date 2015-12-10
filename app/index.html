@@ -6,35 +6,38 @@
     <meta name="description" content="">
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- bower:css -->
-    <link rel="stylesheet" href="ngDialog/css/ngDialog.css">
-    <link rel="stylesheet" href="ngDialog/css/ngDialog-theme-default.css">
     <!-- endinject -->
     <!-- inject:css -->
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="components/addAddr/addAddr.css">
-    <link rel="stylesheet" href="components/cusvice/cusvice.css">
     <link rel="stylesheet" href="components/coupons/coupons.css">
-    <link rel="stylesheet" href="components/editAddr/editAddr.css">
+    <link rel="stylesheet" href="components/cusvice/cusvice.css">
     <link rel="stylesheet" href="components/evaluate/evaluate.css">
     <link rel="stylesheet" href="components/index/index.css">
     <link rel="stylesheet" href="components/myaddr/myaddr.css">
     <link rel="stylesheet" href="components/order/order.css">
     <link rel="stylesheet" href="components/orderDetails/orderDetails.css">
     <link rel="stylesheet" href="components/payment/payment.css">
-    <link rel="stylesheet" href="components/coupons/dialog/couponsDialog.css">
     <link rel="stylesheet" href="components/coupons/tpl/couponsview.css">
     <link rel="stylesheet" href="components/evaluate/tpl/evaluateStart.css">
-    <link rel="stylesheet" href="components/myaddr/tpl/confirm.css">
     <link rel="stylesheet" href="components/order/tpl/orderview.css">
     <!-- endinject -->
 </head>
 <body>
+    <div class="wrap go">
+        <div class="loader bar"> <!-- google now -->
+            <div class="blue"></div>
+            <div class="yellow"></div>
+            <div class="green"></div>
+            <div class="red"></div>
+      </div>
+    </div>  
     <div ui-view=""></div>
     <!-- bower:js -->
     <script src="angular/angular.js"></script>
     <script src="angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="ngDialog/js/ngDialog.js"></script>
     <script src="lodash/lodash.js"></script>
     <script src="restangular/dist/restangular.js"></script>
     <!-- endinject -->
@@ -43,8 +46,8 @@
     <script src="scripts/directive.js"></script>
     <script src="scripts/services.js"></script>
     <script src="components/addAddr/addAddrcontroller.js"></script>
-    <script src="components/cusvice/cusvice.js"></script>
     <script src="components/coupons/couponsController.js"></script>
+    <script src="components/cusvice/cusvice.js"></script>
     <script src="components/editAddr/editAddrcontroller.js"></script>
     <script src="components/evaluate/evaluateController.js"></script>
     <script src="components/index/indexController.js"></script>
@@ -52,9 +55,7 @@
     <script src="components/order/orderController.js"></script>
     <script src="components/orderDetails/orderDetailsController.js"></script>
     <script src="components/payment/paymentController.js"></script>
-    <script src="components/coupons/dialog/couponsDialogController.js"></script>
     <script src="components/coupons/tpl/couponsviewController.js"></script>
-    <script src="components/myaddr/tpl/confirmController.js"></script>
     <script src="components/order/tpl/orderviewController.js"></script>
     <!-- endinject -->
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>

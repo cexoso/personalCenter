@@ -1,59 +1,73 @@
 @import "app/css/base";
 #couponsview{
-    padding: 10px;
+    padding: 5px;
     .coupon{
         margin:10px auto;
         border-radius: 3px;
         overflow: hidden;
-        border:1px solid #ccc;
+        position:relative;
+        .bg{
+            width:100%;
+            height: auto;
+        }
     }
     .panel{
-        padding:10px 11vw;    
-        &.green{
-            background-color: #b8dba6;
-            .icon{
-                background-position: 0 0;    
-            }
-        }
-        &.red{
-            background-color: #fc936d;
-            .icon{
-                background-position: -25px 0;    
-            }
-        }
-        .icon{
-            float:left;
-            background: rgba(0, 0, 0, 0) url($img+"cbg.png") no-repeat scroll 0 0 / 50px 40px;
-            display: inline-block;
-            height: 40px;
-            width: 24px;
-            margin-right: 10px;
-        }
+        position:absolute;
+        top:0;
+        left:0;
+        bottom: 8vw;
+        right:0;
         .font{
-            float: left;
-            display:inline-block;
-            height: 40px;
-            line-height: 40px;
-            vertical-align: middle;
-            color: white;
-            i{
-                font-style: normal;
-                font-size: 150%;
+            position:relative;
+            height:100%;
+            .left{
+                position:absolute;
+                top: 50%;
+                left:0;
+                padding:0 1em;
+                vertical-align: bottom;
+                transform:translate(0,-50%);
+                word-spacing: 1em;
+                .symbol{
+                    color:#af76c5;
+                    font-size:10vw;
+                }
+                i{
+                    color:#af76c5;
+                    font-style: normal;
+                    font-size:20vw;
+                    letter-spacing: -1px;
+                }
+            }
+            .right{
+                position:absolute;
+                top: 50%;
+                left:50%;
+                vertical-align: bottom;
+                transform:translate(0,-50%);
+                font-size:6vw;
+                color:#bababa;
+                padding:0.5em 0 0 0.5em;
             }
         }
     }
     .footer{
-        background-color: white;
-        padding: 2vw;
-        font-size:3.7vw;
-        color:#dcd9d9;
+        position:absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;  
+        line-height: 8vw;
+        padding: 0 3vw;  
+        color: #fff;   
         .confine{
             float:left;
             width: 60%;
+            white-space: nowrap;
         }
         .deadline{
             float:left;
             width: 40%;   
+            white-space: nowrap;
         }
     }
 }

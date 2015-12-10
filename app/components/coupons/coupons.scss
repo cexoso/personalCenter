@@ -3,35 +3,26 @@
     min-height: 100vh;
     background-color: #fafaee;
     header{
-        background: url($img+'couponsbg.jpg') center top/100% auto no-repeat;
-        height: 36.5vw;
         position: relative;
         .header_content{
-            width:100%;
-            position: absolute;
-            bottom: 0;
-            padding: 10px;
-            padding: 1.9vw;
-            background-color: rgba(0,0,0,0.3);
-            .headimgurl{
-                border-radius: 50%;
-                width: 15%;
-                height: auto;
-                border: 3px solid #5a6b73;
-                vertical-align: middle;
-            }
-            .nickname{
-                color: white;
-                font-size: 6vw;
-                line-height: 14vw;
-                padding: 8px;
-                padding: 3vw;
+            padding: 15px;
+            padding: 3.5vw;
+            background-color: #fff;                 
+            input{
+                appearance:none;
+                float:left;
+                width:68%;
+                height:30px;
+                line-height:30px;
+                padding:5px;
+                font-size:18px;
+                border:1px solid #efefef;
+                border-radius: 3px;
             }
             .btn{
                 float: right;
                 outline: none;
                 display: inline-block;
-                padding: 3px 12px;
                 font-weight: normal;
                 line-height: 1.42857143;
                 text-align: center;
@@ -39,21 +30,28 @@
                 vertical-align: middle;
                 cursor: pointer;                
                 border: 1px solid transparent;
-                background-color: #5ea723;
+                border-radius: 3px;
+                background-color: #3781d8;
                 color:#fff;
-                border-radius: 10px;
-                margin-top: 3vw;
+                width:28%;
+                height:30px;
+                line-height:30px;
+                font-size:20px;
             }
         }
     }
     .nav{
         padding: 5px 0;
-        background-color: #ca8a00;
+        background-color: #fff;
+        border-top:1px solid #d9d9d9;
+        border-bottom:1px solid #d9d9d9;
         .nav_group{
             margin: 0 auto;
             width: 95%;
             display: table;
             .btn{
+                font-size:20px;
+                font-weight: 800;
                 width: 1%;    
                 outline: none;
                 display: inline-block;
@@ -66,21 +64,37 @@
                 cursor: pointer;
                 background-image: none;
                 border: 1px solid transparent;
-                background-color: #a87300;
-                color:white;
+                background-color: #fff;
+                color:#5a5a5a;
                 display: table-cell;
                 &:hover,&:active,&.active{
                     background-color:#fff;    
-                    color: #f2b411;
+                    color: #b10200;
+                    &>.f{
+                        display:inline-block;
+                    }
+                    &>.f::before{
+                        content:" ";
+                        position:relative;
+                        top:40px;
+                        left:0;
+                        width:100%;
+                        height:1px;
+                        display:block;
+                        background-color: red;
+                    }
                 }
-                &:first-child{
-                    border-bottom-left-radius: 5px;
-                    border-top-left-radius: 5px;                    
-                }
-                &:last-child{
-                    border-bottom-right-radius: 5px;
-                    border-top-right-radius: 5px;
-                }
+                &:not(:last-child)::after{
+                      content: "";
+                      height: 1em;
+                      position: relative;
+                      top: 0.2em;
+                      left: 1.5em;
+                      background-color: #d8d8d8;
+                      display: inline-block;
+                      width: 1px;
+                }             
+                
             }
         }
     }

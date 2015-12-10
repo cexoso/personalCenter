@@ -5,8 +5,8 @@
     height: 9vw;
     width: 9vw;
     float: left;
-    background: transparent url("/images/evaluateStar.png") no-repeat scroll 0-9vw/9vw auto;
-    margin: 0 0.5vw; }
+    background: transparent url("/images/evaluateStar.png") no-repeat scroll 0-"9vw / 9vw" auto;
+    margin: 0 1.5vw; }
     [evaluate-star] .star.active {
       background-position: 0 0; }
   [evaluate-star]::after {

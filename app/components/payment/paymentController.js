@@ -25,7 +25,18 @@ angular.module('controller')
         }
     }).error(function(d){
         s.ctip="查找失败";
-    }); 
+    });
+    s.$watch("coupon",function(coupon){
+        if(!coupon){
+            s.pay_display=orderHead.totlePrice;
+        }else{
+            if(coupon.cardType==99){
+                s.pay_display=1;    
+            }else{
+                s.pay_display=orderHead.totlePrice-coupon.cardPrice;    
+            }
+        }
+    });
     function pay(){
       wx.payNewVer({
         orderID:s.orderHead.orderID,

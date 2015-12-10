@@ -8,7 +8,7 @@ $star_size:9vw;
         width: $star_size;
         float:left;
         background: rgba(0, 0, 0, 0) url($img+"evaluateStar.png") no-repeat scroll 0 -#{$star_size} / #{$star_size} auto;
-        margin: 0 0.5vw;
+        margin: 0 1.5vw;
         &.active{
             background-position: 0 0;
         }

@@ -2,7 +2,8 @@
 #loading{
     display:none;
     background-color: rgba(155, 155, 155, 0.5);
-    bottom: 0;
+    min-height:667px;
+    bottom:0;
     left: 0;
     position: fixed;
     right: 0;
@@ -36,44 +37,111 @@
         transform:rotate(360deg);
     }
 }
-#index>header{
-    background: url($img+'headbg.jpg') center top/100% auto no-repeat;
+#index{
+    min-height:100vh;
+    background-color: #f0efed;
+}
+#index>header{    
     height: 43.5vw;
     position: relative;
     .header_content{
-        width:100%;
-        position: absolute;
-        bottom: 0;
-        padding: 10px;
-        padding: 1.9vw;
-        .headimgurl{
-            border-radius: 50%;
-            width: 50px;
-            height: auto;            
-            // border: 3px solid #367aec;
-            vertical-align: middle;
-        }
-        .nickname{
-            color: white;
+       position:relative;
+       .bg{
+            width:100%;
+            height:auto;
+       }
+       .user{
+            position:absolute;
+            top: 60%;
+            left:50%;
+            transform:translate(-50%,-50%);
+       }
+       .nickname{
+            color: #e6efff;
             font-size: 6vw;
-            line-height: 14vw;
-            padding: 8px;
-            padding: 3vw;
             vertical-align: middle;
+            text-align: center;
+        }
+        .border{
+            border-radius: 50%;
+            border:3px solid #8cdbfc;
+            overflow: hidden;
+            .headimgurl{
+                border-radius: 50%;
+                width: 75px;
+                height: auto;            
+                vertical-align: middle;
+            }
         }
     }
 }
-#index>article{
-    padding: 5px;
-    padding: 0.5vw;  
-    .note{
-        margin: 10px;
-        margin: 2vw;
+#index>article{    
+    .shortcut{
         padding: 10px;
-        padding: 1.5vw 4.5vw;
+        background-color: #fff;
+        overflow:hidden;
+        .coupons{
+            display:inline-block;
+            width:50%;
+            float:left;
+            padding-right:5px;
+            .icon-coupons{
+                background-color:#0f91dc;
+                border-radius: 50%;
+                color: #fff;
+                display: inline-block;
+                font-size: 9vw;
+                vertical-align: middle;
+                padding: 10px;
+                display:inline-block;
+            }            
+            .display{
+                color:#7d7d7d;
+                display:inline-block;
+                font-size:4.5vw;
+                vertical-align: middle;
+                
+                .q{
+                    text-align: center;
+                }
+            }
+        }    
+        .order{
+            display:inline-block;
+            width:50%;
+            display:inline-block;
+            padding-left:10px;
+            border-left:1px solid #d6d6d6;
+            .icon-shopping_car{
+                background-color:#86449e;
+                border-radius: 50%;
+                color: #fff;
+                display: inline-block;
+                font-size: 9vw;
+                vertical-align: middle;
+                padding: 10px;                
+            }
+            .display{
+                color:#7d7d7d;
+                display:inline-block;
+                font-size:4.5vw;
+                vertical-align: middle;
+                
+                .q{
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .note{
+        margin:20px 0;
+        margin:4vw 0;
+        padding: 15px;
+        padding: 4vw 4.5vw;
         border: 1px solid #e7e7de;
         color: #a5a5a2;
         box-shadow: 0 2px 5px 0 #e7e7de;
+        background-color: #fff;
         a{
             color: #a5a5a2;
         }
@@ -101,9 +169,12 @@
         .icon_feedback{
             background-position:-9vw -13vw;
         }
-        .icon_arrow{
-            background-position:1vw -13vw;
+        .icon-arrow{
+            vertical-align: middle;
             float: right;
+            height: 9.5vw;
+            line-height:9.5vw;
+            font-size:120%;
         }
     }  
 }

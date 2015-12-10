@@ -4,12 +4,14 @@ angular.module('controller')
     s.data=data;
     console.log(s.data);
     s.taglist=[
-        {name:'高颜值'},
+        {name:'颜值高'},
         {name:'搞机大师'},
         {name:'好准时'},
-        {name:'效率极高'},
-        {name:'态度好'},
-        {name:'我要给最高'}
+        {name:'快捷放心'},
+        {name:'效率高'},
+        {name:'上门及时'},
+        {name:'诚信可靠'},
+        {name:'专业'}
     ];
     s.submit=function(){
         $http.post(baseUrl+"api/task/postEvaluate",angular.extend($stateParams,s.data,{

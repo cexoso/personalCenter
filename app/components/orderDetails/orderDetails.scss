@@ -42,7 +42,7 @@ $defaultColor:#434343;
                 }
                 &.active::after{
                     background-color:$activeColor;
-                    box-shadow: 0 -3px 2px 0 #8b8120 inset;
+                    // box-shadow: 0 -3px 2px 0 #8b8120 inset;
                 }
                 &.active .point{
                     background-color:$activeColor;
@@ -51,10 +51,11 @@ $defaultColor:#434343;
                     width:0; 
                 }
                 .text{
-                    color:#fff;
+                    color:#c6bfb9;
                     position: absolute;  
-                    right: -2em;
+                    right: -3em;
                     top: -2em;
+                    font-weight: 700;
                     transform:translate(-50%,-50%);
                     white-space: nowrap;
                 }
@@ -62,44 +63,66 @@ $defaultColor:#434343;
         }
         .tips{
             margin:2em -0.7em;
-            color:#b24d1a;
+            color:#a9a9b5;
+            font-weight: 700;
         }
     }
     .container{
-        padding: 10px;
+        padding: 5px 0;
         .panel{
-            border:1px solid #c6c1b5;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            overflow: hidden;
             .header{
-                padding: 0.5em;
-                color:#fff;
-                font-size:120%;
-                background-color: #ebc35e;
+                padding: 9px 0.3em;
+                color:#686868;
+                border:1px solid #d8d8d8;
+                background-color: #fff;
+                font-weight: 700;
+                font-size:18px;
+                vertical-align: middle;
+                .icon-order{
+                    color:#3a89c2;
+                    font-size:25px;
+                    float: left;
+                    margin-right:5px;
+                }
             }
-            .body{
-                // #272727
-                padding: 0.5em;
+            .body{                
+                padding-left: 53px;
                 line-height: 1.7;
-                background-color: #f4f4ef;
+                background-color: #fff;
+                .wrap{
+                    padding:6px 0;
+                    border-bottom:1px solid #d8d8d8;
+                    &:last-child{
+                        border-bottom:none;
+                    }
+                }
                 .item{
+                    float:left;
                     font-size:0;
                     .key{
-                        display:inline-block;
-                        font-size:14px;
-                        width:4.5em;
+                        display:table-cell;                        
+                        font-size:16px;     
+                        width:1.5em;                   
+                        vertical-align: middle;
                         color:#5a5959;
                     }
                     .value{
-                        font-size:14px;
+                        display:table-cell;
+                        font-size:16px;
+                        vertical-align: middle;
                     }                    
                 }
+            }
+            .footer{
+                background-color: #fff;
+                border-top:1px solid  #d8d8d8;
+                padding:10px;
                 .btn{
                     outline: none;
-                    display: inline-block;
-                    padding: 5px;
+                    display: inline-block;                    
                     width:100%;
+                    height:30px;
+                    font-size:16px;
                     font-weight: normal;
                     line-height: 1.42857143;
                     text-align: center;
@@ -110,9 +133,9 @@ $defaultColor:#434343;
                     background-color: #3da8ed;
                     color:#fff;
                     border-radius: 5px;
-                    margin-top: 3vw;
-                }
+                }    
             }
+            
         }
     }
 }

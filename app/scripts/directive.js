@@ -4,7 +4,7 @@ angular.module('directive', [])
         restrict:"A",
         require:'ngModel',
         replace:true,
-        template:"<span class='checkbox' ng-class='{checked:V}'></span>",
+        template:"<span class='checkbox' ng-class='{checked:V,\"icon-check\":V}'></span>",
         scope:{
             V:"=ngModel"
         },
